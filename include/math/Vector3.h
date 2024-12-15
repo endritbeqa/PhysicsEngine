@@ -13,10 +13,8 @@ public:
     float x, y, z;
     Vector3(): x(0.0f), y(0.0f), z(0.0f) {}
     Vector3(float x, float y, float z) : x(x), y(y), z(z) {};
-
-    float getX() const {return x;}
-    float getY() const {return y;}
-    float getZ() const {return z;}
+    Vector3(Vector3 &v): x(v.x), y(v.y), z(v.z) {};
+    Vector3(const Vector3 &v): x(v.x), y(v.y), z(v.z) {};
 
     Vector3 operator+(const Vector3& other) const {
         return Vector3(x + other.x, y + other.y, z + other.z);
@@ -24,6 +22,10 @@ public:
 
     Vector3 operator-(const Vector3& other) const {
         return Vector3(x - other.x, y - other.y, z - other.z);
+    }
+
+    Vector3 operator*(const Vector3& other) const {
+        return Vector3(x * other.x, y * other.y, z * other.z);
     }
 
     Vector3 operator*(float scalar) const {
@@ -38,16 +40,16 @@ public:
         return x * other.x + y * other.y + z * other.z;
     }
 
-    float length() const {
+    float norm() const {
         return std::sqrt(x * x + y * y + z * z);
     }
 
-    float lengthSquared() const {
+    float normSquared() const {
         return x * x + y * y * z * z;
     }
 
     void normalize() {
-        float len = length();
+        float len = norm();
         if (len > 0.0f) {
             x /= len;
             y /= len;
@@ -56,11 +58,10 @@ public:
     }
 
     Vector3 normalized() const {
-        float len = length();
+        float len = norm();
         if (len > 0.0f) {
             return Vector3(x / len, y / len, z / len);
         }
-        return *this;
     }
 
     Vector3 cross(const Vector3& other) const {

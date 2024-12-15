@@ -41,41 +41,104 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target PhysicsEngine
+# Object build statements for STATIC_LIBRARY target Engine
 
 
 #############################################
-# Order-only phony target for PhysicsEngine
+# Order-only phony target for Engine
 
-build cmake_object_order_depends_target_PhysicsEngine: phony || CMakeFiles/PhysicsEngine.dir
+build cmake_object_order_depends_target_Engine: phony || CMakeFiles/Engine.dir
 
-build CMakeFiles/PhysicsEngine.dir/src/main.cpp.o: CXX_COMPILER__PhysicsEngine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/main.cpp || cmake_object_order_depends_target_PhysicsEngine
-  DEP_FILE = CMakeFiles/PhysicsEngine.dir/src/main.cpp.o.d
+build CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/core/objects/3D/Object3.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/PhysicsEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/PhysicsEngine.dir/src
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/core/objects/3D
 
-build CMakeFiles/PhysicsEngine.dir/src/math/Matrix2.cpp.o: CXX_COMPILER__PhysicsEngine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/math/Matrix2.cpp || cmake_object_order_depends_target_PhysicsEngine
-  DEP_FILE = CMakeFiles/PhysicsEngine.dir/src/math/Matrix2.cpp.o.d
+build CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/core/objects/3D/Particle.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/PhysicsEngine.dir
-  OBJECT_FILE_DIR = CMakeFiles/PhysicsEngine.dir/src/math
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/core/objects/3D
+
+build CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/forces/GravityForce.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/forces
+
+build CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/forces/FrictionForce.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/forces
+
+build CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/forces/SpringForce.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/forces
+
+build CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/forces/DragForce.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/forces
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target PhysicsEngine
+# Link build statements for STATIC_LIBRARY target Engine
 
 
 #############################################
-# Link the executable PhysicsEngine
+# Link the static library libEngine.a
 
-build PhysicsEngine: CXX_EXECUTABLE_LINKER__PhysicsEngine_Debug CMakeFiles/PhysicsEngine.dir/src/main.cpp.o CMakeFiles/PhysicsEngine.dir/src/math/Matrix2.cpp.o
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles/PhysicsEngine.dir
+build libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Engine.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = PhysicsEngine
-  TARGET_PDB = PhysicsEngine.dbg
+  TARGET_FILE = libEngine.a
+  TARGET_PDB = Engine.a.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Particle_Demo
+
+
+#############################################
+# Order-only phony target for Particle_Demo
+
+build cmake_object_order_depends_target_Particle_Demo: phony || cmake_object_order_depends_target_Engine
+
+build CMakeFiles/Particle_Demo.dir/Demos/Particle_Demo.cpp.o: CXX_COMPILER__Particle_Demo_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/Demos/Particle_Demo.cpp || cmake_object_order_depends_target_Particle_Demo
+  DEP_FILE = CMakeFiles/Particle_Demo.dir/Demos/Particle_Demo.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine -I/include
+  OBJECT_DIR = CMakeFiles/Particle_Demo.dir
+  OBJECT_FILE_DIR = CMakeFiles/Particle_Demo.dir/Demos
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Particle_Demo
+
+
+#############################################
+# Link the executable Particle_Demo
+
+build Particle_Demo: CXX_EXECUTABLE_LINKER__Particle_Demo_Debug CMakeFiles/Particle_Demo.dir/Demos/Particle_Demo.cpp.o | libEngine.a || libEngine.a
+  FLAGS = -g
+  LINK_LIBRARIES = libEngine.a
+  OBJECT_DIR = CMakeFiles/Particle_Demo.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Particle_Demo
+  TARGET_PDB = Particle_Demo.dbg
 
 
 #############################################
@@ -103,6 +166,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build Engine: phony libEngine.a
+
 # =============================================================================
 # Folder targets.
 
@@ -111,7 +176,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug
 
-build all: phony PhysicsEngine
+build all: phony libEngine.a Particle_Demo
 
 # =============================================================================
 # Built-in targets

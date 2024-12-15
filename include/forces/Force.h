@@ -1,19 +1,25 @@
-//
-// Created by endrit on 11.11.24.
-//
-
 #ifndef PHYSICSENGINE_FORCE_H
 #define PHYSICSENGINE_FORCE_H
 
-#include "../math/Vector3.h"
-#include "../core/Object3.h"
+#include <memory>
+#include "include/math/Vector3.h"
+#include "include/core/objects/3D/Object3.h"
+#include "vector"
+
+enum ForceType{
+    Unary,
+    N_ary,
+    Spatial_Interaction
+};
 
 class Force {
 public:
-    virtual ~Force() = default;
+    ForceType type;
+    std::vector<std::shared_ptr<Object3>> objects;
 
-    // Calculate the force vector given the state of the object
-    virtual Vector3 calculate(const Object3& object, float time) const = 0;
+    Force(){};
+    virtual ~Force() {};
+    virtual void apply()=0;
 };
 
 

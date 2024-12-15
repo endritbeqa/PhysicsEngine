@@ -1,0 +1,2 @@
+/usr/bin/ar qc libEngine.a CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o CMakeFiles/Engine.dir/src/solvers/Solver.cpp.o CMakeFiles/Engine.dir/src/solvers/Euler.cpp.o CMakeFiles/Engine.dir/src/solvers/RK4.cpp.o
+/usr/bin/ranlib libEngine.a

@@ -1,3 +1,4 @@
-/home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug/CMakeFiles/PhysicsEngine.dir
+/home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug/CMakeFiles/Engine.dir
+/home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug/CMakeFiles/Particle_Demo.dir
 /home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
