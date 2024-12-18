@@ -2,12 +2,21 @@
 
 Particle::Particle(){}
 
-Particle::Particle(Vector3 pos, Vector3 vel, float m): Object3(pos,vel,m) {}
+Particle::Particle(Vector3 pos, Vector3 vel, double m): Object3(pos,vel,m) {}
 
-Particle::Derivative Particle::calculateDerivative(Particle p, float dt) {
+
+Particle::Derivative Particle::calculateDerivative() {
     Particle::Derivative d ={
-            p.velocity*dt,
-            (p.forceAccum/p.mass)*dt
+            velocity,
+            (forceAccum/mass)
+    };
+    return d;
+}
+
+Particle::Derivative Particle::calculateDerivative(Particle p) {
+    Particle::Derivative d ={
+            p.velocity,
+            (p.forceAccum/p.mass)
     };
     return d;
 }
@@ -17,6 +26,11 @@ void Particle::updateState(Particle::Derivative d) {
     velocity = velocity+d.accelaration;
 }
 
+
+//TODO how to make this not return a new particle
 Particle Particle::calculateState(Particle::Derivative d) {
-    return Particle(position+d.velocity,velocity+d.accelaration, mass);
+    Particle result = *this;
+    result.position = result.position+d.velocity;
+    result.velocity = result.velocity+d.accelaration;
+    return result;
 }

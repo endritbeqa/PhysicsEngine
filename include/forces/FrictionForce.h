@@ -11,9 +11,9 @@
 
 class FrictionForce : public Force{
 public:
-    float mu;
+    double mu;
 
-    FrictionForce(float frictionCoefficient);
+    FrictionForce(double frictionCoefficient);
 
     void apply() override;
 

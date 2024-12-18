@@ -13,9 +13,9 @@ public:
     Euler(){}
 
     template<typename object>
-    void step(std::shared_ptr<object> obj, double t, double dt) {
-        typename object::Derivative step = obj.calculateDerivative(obj, t);
-        obj.updateState(step);
+    void step(std::shared_ptr<object> obj, double dt) {
+        typename object::Derivative step = obj->calculateDerivative(*obj)*dt;
+        obj->updateState(step);
     }
 };
 

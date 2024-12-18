@@ -11,20 +11,11 @@
 
 class Quaternion {
 public:
-    float w, x, y, z;
+    double w, x, y, z;
 
     Quaternion() : w(1.0f), x(0.0f), y(0.0f), z(0.0f) {}
 
-    Quaternion(float w, float x, float y, float z) : w(w), x(x), y(y), z(z) {}
-
-    float getW() const { return w; }
-
-    float getX() const { return x; }
-
-    float getY() const { return y; }
-
-    float getZ() const { return z; }
-
+    Quaternion(double w, double x, double y, double z) : w(w), x(x), y(y), z(z) {}
 
     Quaternion operator+(const Quaternion &other) {
         return Quaternion(w + other.w, x + other.x, y + other.y, z + other.z);
@@ -41,7 +32,7 @@ public:
                           w * other.z + x * other.y - y * other.x + z * other.w);
     }
 
-    Quaternion operator*(const float &scalar) {
+    Quaternion operator*(const double &scalar) {
         return Quaternion(w * scalar, x * scalar, y * scalar, z * scalar);
     }
 
@@ -49,12 +40,12 @@ public:
         return Quaternion(w, -x, -y, -z);
     }
 
-    float magnitude() const {
+    double magnitude() const {
         return std::sqrt(w * w + x * x + y * y + z * z);
     }
 
     void normalize() {
-        float norm = magnitude();
+        double norm = magnitude();
         if (norm == 0) {
             std::cerr << "Quaternion has magnitude 0!" << std::endl;
         } else {
@@ -66,7 +57,7 @@ public:
     }
 
     Quaternion normalized() {
-        float norm = magnitude();
+        double norm = magnitude();
         if (norm == 0) {
             std::cerr << "Quaternion has magnitude 0!" << std::endl;
             return (*this);
@@ -80,7 +71,7 @@ public:
     }
 
     Quaternion inverse() const {
-        float norm = magnitude();
+        double norm = magnitude();
         return conjugate() * (1.0f / (norm * norm));
     }
 
@@ -90,9 +81,9 @@ public:
         return result;
     }
 
-    static Quaternion fromAxisAngle(float angle, Vector3 &v) {
-        float halfAngle = angle / 2.0f;
-        float sinHalfAngle = std::sin(halfAngle);
+    static Quaternion fromAxisAngle(double angle, Vector3 &v) {
+        double halfAngle = angle / 2.0f;
+        double sinHalfAngle = std::sin(halfAngle);
         return Quaternion(std::cos(halfAngle),
                           v.x * sinHalfAngle,
                           v.y * sinHalfAngle,

@@ -7,7 +7,7 @@
 
 class Matrix2 {
 public:
-    float m[2][2];  // 2x2 matrix (2 rows, 2 columns)
+    double m[2][2];  // 2x2 matrix (2 rows, 2 columns)
 
     // Constructors
     Matrix2() {
@@ -15,7 +15,7 @@ public:
         m[1][0] = 0.0f; m[1][1] = 1.0f;
     }
 
-    Matrix2(float a, float b, float c, float d) {
+    Matrix2(double a, double b, double c, double d) {
         m[0][0] = a; m[0][1] = b;
         m[1][0] = c; m[1][1] = d;
     }
@@ -25,11 +25,11 @@ public:
         m[1][0] = v2.x; m[1][1] = v2.y;
     }
 
-    float get(int row, int col) const {
+    double get(int row, int col) const {
         return m[row][col];
     }
 
-    void set(int row, int col, float value) {
+    void set(int row, int col, double value) {
         m[row][col] = value;
     }
 
@@ -69,7 +69,7 @@ public:
     }
 
     // Scalar multiplication
-    Matrix2 operator*(float scalar) const {
+    Matrix2 operator*(double scalar) const {
         return Matrix2(
                 m[0][0] * scalar, m[0][1] * scalar,
                 m[1][0] * scalar, m[1][1] * scalar
@@ -77,18 +77,18 @@ public:
     }
 
     // Determinant of the matrix
-    float determinant() const {
+    double determinant() const {
         return m[0][0] * m[1][1] - m[0][1] * m[1][0];
     }
 
     // Inverse of the matrix
     Matrix2 inverse() const {
-        float det = determinant();
+        double det = determinant();
         if (det == 0) {
             std::cerr << "Matrix is singular and cannot be inverted!" << std::endl;
             return *this;  // Return the original matrix if it cannot be inverted
         }
-        float invDet = 1.0f / det;
+        double invDet = 1.0f / det;
         return Matrix2(
                 m[1][1] * invDet, -m[0][1] * invDet,
                 -m[1][0] * invDet, m[0][0] * invDet

@@ -4,7 +4,7 @@
 
 #include "include/forces/DragForce.h"
 
-DragForce::DragForce(float x) {
+DragForce::DragForce(double x) {
     type = Unary;
     Cd = x;
 }

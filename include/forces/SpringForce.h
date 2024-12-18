@@ -9,12 +9,12 @@
 
 class SpringForce : public Force{
 public:
-    float springConstant;
-    float dampeningConstant;
-    float length;
+    double springConstant;
+    double dampeningConstant;
+    double length;
 
     SpringForce();
-    SpringForce(float springConstant,float dampeningConstant, float length);
+    SpringForce(double springConstant,double dampeningConstant, double length);
 
     void add_objects(std::shared_ptr<Object3> obj1, std::shared_ptr<Object3> obj2);
     void apply();

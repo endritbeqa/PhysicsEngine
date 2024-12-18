@@ -13,9 +13,10 @@
 class Plane{
 public:
     Plane();
+    Plane(Vector3 nor, Vector3 pos);
 
     Vector3 normal;
-    Vector3 postion;
+    Vector3 position;
 
     bool checkCollision(std::shared_ptr<Object3> obj);
 

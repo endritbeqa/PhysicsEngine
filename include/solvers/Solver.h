@@ -8,7 +8,7 @@
 class Solver {
 public:
     template<typename object>
-    void step(object &obj, double t, double dt);
+    void step(object &obj, double dt);
 
 };
 

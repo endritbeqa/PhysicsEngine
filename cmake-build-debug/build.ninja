@@ -91,6 +91,27 @@ build CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o: CXX_COMPILER__Engine_uns
   OBJECT_DIR = CMakeFiles/Engine.dir
   OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/forces
 
+build CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/collisions/Plane.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/collisions
+
+build CMakeFiles/Engine.dir/src/core/objects/3D/RidgitBody.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/core/objects/3D/RidgitBody.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/core/objects/3D/RidgitBody.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/core/objects/3D
+
+build CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/core/systems/ParticleSystem.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/core/systems
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target Engine
@@ -99,7 +120,7 @@ build CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o: CXX_COMPILER__Engine_uns
 #############################################
 # Link the static library libEngine.a
 
-build libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o
+build libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/RidgitBody.cpp.o CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/Engine.dir
   POST_BUILD = :

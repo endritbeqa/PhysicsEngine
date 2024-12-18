@@ -8,7 +8,7 @@ class Particle: public Object3{
 
 public:
     Particle();
-    Particle(Vector3 pos, Vector3 vel, float m);
+    Particle(Vector3 pos, Vector3 vel, double m);
 
     struct Derivative{
     public:
@@ -53,7 +53,8 @@ public:
 
     };
 
-    Particle::Derivative calculateDerivative(Particle p, float t);
+    Particle::Derivative calculateDerivative();
+    Particle::Derivative calculateDerivative(Particle p);
     void updateState(Derivative d);
     Particle calculateState(Derivative d);
 

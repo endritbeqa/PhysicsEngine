@@ -8,11 +8,12 @@
 #include <cmath>
 #include <iostream>
 
+
 class Vector3{
 public:
-    float x, y, z;
+    double x, y, z;
     Vector3(): x(0.0f), y(0.0f), z(0.0f) {}
-    Vector3(float x, float y, float z) : x(x), y(y), z(z) {};
+    Vector3(double x, double y, double z) : x(x), y(y), z(z) {};
     Vector3(Vector3 &v): x(v.x), y(v.y), z(v.z) {};
     Vector3(const Vector3 &v): x(v.x), y(v.y), z(v.z) {};
 
@@ -28,28 +29,28 @@ public:
         return Vector3(x * other.x, y * other.y, z * other.z);
     }
 
-    Vector3 operator*(float scalar) const {
+    Vector3 operator*(double scalar) const {
         return Vector3(x * scalar, y * scalar, z * scalar);
     }
 
-    Vector3 operator/(float scalar) const {
+    Vector3 operator/(double scalar) const {
         return Vector3(x / scalar, y / scalar, z / scalar);
     }
 
-    float dot(const Vector3& other) const {
+    double dot(const Vector3& other) const {
         return x * other.x + y * other.y + z * other.z;
     }
 
-    float norm() const {
+    double norm() const {
         return std::sqrt(x * x + y * y + z * z);
     }
 
-    float normSquared() const {
+    double normSquared() const {
         return x * x + y * y * z * z;
     }
 
     void normalize() {
-        float len = norm();
+        double len = norm();
         if (len > 0.0f) {
             x /= len;
             y /= len;
@@ -58,7 +59,7 @@ public:
     }
 
     Vector3 normalized() const {
-        float len = norm();
+        double len = norm();
         if (len > 0.0f) {
             return Vector3(x / len, y / len, z / len);
         }
@@ -72,10 +73,13 @@ public:
         );
     }
 
+
     friend std::ostream& operator<<(std::ostream& os, const Vector3& v) {
         os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
         return os;
     }
+
+
 
 };
 

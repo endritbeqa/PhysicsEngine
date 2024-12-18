@@ -6,7 +6,13 @@
 
 class Object3 {
 public:
-    Object3(Vector3 pos, Vector3 vel, float mass);
+
+    Vector3 position;
+    Vector3 velocity;
+    double mass;
+    Vector3 forceAccum;
+
+    Object3(Vector3 pos, Vector3 vel, double mass);
     Object3();
     virtual ~Object3() = default;
 
@@ -22,11 +28,6 @@ public:
         other.mass = 0.0f;
     }
 
-
-    Vector3 position;
-    Vector3 velocity;
-    float mass;
-    Vector3 forceAccum;
 
     void resetForces();
 

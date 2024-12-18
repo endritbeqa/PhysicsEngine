@@ -5,9 +5,9 @@
 
 class DragForce : public Force{
 public:
-    float Cd;
+    double Cd;
 
-    DragForce(float x);
+    DragForce(double x);
 
     void apply() override;
 };
