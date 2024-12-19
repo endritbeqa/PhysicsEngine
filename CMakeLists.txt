@@ -8,7 +8,7 @@ include_directories(${CMAKE_SOURCE_DIR})
 set(ENGINE_HEADERS
         include/core/objects/3D/Object3.h
         include/core/objects/3D/Particle.h
-        include/core/objects/3D/RidgitBody.h
+        include/core/objects/3D/RigitBody.h
         include/forces/Force.h
         include/forces/GravityForce.h
         include/forces/FrictionForce.h
@@ -35,8 +35,9 @@ set(ENGINE_SOURCES
         src/forces/SpringForce.cpp
         src/forces/DragForce.cpp
         src/collisions/Plane.cpp
-        src/core/objects/3D/RidgitBody.cpp
+        src/core/objects/3D/RigitBody.cpp
         src/core/systems/ParticleSystem.cpp
+        include/core/systems/RigitBodySystem.h
 
 )
 
@@ -44,6 +45,7 @@ add_library(Engine ${ENGINE_HEADERS} ${ENGINE_SOURCES})
 target_compile_features(Engine PUBLIC cxx_std_20)
 
 
-add_executable(Particle_Demo Demos/Particle_Demo.cpp)
+add_executable(Particle_Demo Demos/ParticleDemo.cpp
+        Demos/RiddgitBodyDemo.cpp)
 target_include_directories(Particle_Demo PRIVATE /include)
 target_link_libraries(Particle_Demo PUBLIC Engine)

@@ -1,5 +1,3 @@
-
-
 #include "include/core/systems/ParticleSystem.h"
 #include "include/forces/GravityForce.h"
 #include "include/forces/SpringForce.h"

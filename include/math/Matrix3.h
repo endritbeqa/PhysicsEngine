@@ -8,7 +8,7 @@
 
 class Matrix3 {
 public:
-    double m[3][3]; // 3x3 matrix stored in a 2D array
+    std::array<std::array<double,3>,3> m; // 3x3 matrix stored in a 2D array
 
     // Default constructor: Identity matrix
     Matrix3() {

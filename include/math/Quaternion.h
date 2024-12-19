@@ -16,6 +16,7 @@ public:
     Quaternion() : w(1.0f), x(0.0f), y(0.0f), z(0.0f) {}
 
     Quaternion(double w, double x, double y, double z) : w(w), x(x), y(y), z(z) {}
+    Quaternion(double w, Vector3 v) : w(w), x(v.x), y(v.y), z(v.z) {}
 
     Quaternion operator+(const Quaternion &other) {
         return Quaternion(w + other.w, x + other.x, y + other.y, z + other.z);
@@ -90,12 +91,55 @@ public:
                           v.z * sinHalfAngle).normalized();
     }
 
+
+    Matrix3 toMatrix(){
+        return Matrix3(1-2*y*y-2*z*z,2*x*y-2*w*z, 2*x*z+2*w*y,
+                       2*x*y+2*w*z, 1-2*x*x-2*z*z, 2*y*z-2*w*x,
+                       2*x*z-2*w*y, 2*y*z+2*w*x, 1-2*x*x-2*y*y);
+    }
+
     friend std::ostream &operator<<(std::ostream &os, const Quaternion &v) {
         os << "(" << v.w << ", " << v.x << ", " << v.y << ", " << v.z << ")";
         return os;
     }
 
 };
+
+Quaternion rotationMatrixToQuaternion(const Matrix3& R) {
+    //TODO A bit hacky but works since I can't overload the [] operator twice in C++20 (is possible in C++23)
+    std::array<std::array<double,3>,3> data = R.m;
+    Quaternion q;
+    double trace = data[0][0] + data[1][1] + data[2][2]; // Trace of the matrix
+
+    if (trace > 0.0) {
+        double S = sqrt(trace + 1.0) * 2.0; // S = 4 * q.w
+        q.w = 0.25 * S;
+        q.x = (data[2][1] - data[1][2]) / S;
+        q.y = (data[0][2] - data[2][0]) / S;
+        q.z = (data[1][0] - data[0][1]) / S;
+    } else if ((data[0][0] > data[1][1]) && (data[0][0] > data[2][2])) {
+        double S = sqrt(1.0 + data[0][0] - data[1][1] - data[2][2]) * 2.0;
+        q.w = (data[2][1] - data[1][2]) / S;
+        q.x = 0.25 * S;
+        q.y = (data[0][1] + data[1][0]) / S;
+        q.z = (data[0][2] + data[2][0]) / S;
+    } else if (data[1][1] > data[2][2]) {
+        double S = sqrt(1.0 + data[1][1] - data[0][0] - data[2][2]) * 2.0;
+        q.w = (data[0][2] - data[2][0]) / S;
+        q.x = (data[0][1] + data[1][0]) / S;
+        q.y = 0.25 * S;
+        q.z = (data[1][2] + data[2][1]) / S;
+    } else {
+        double S = sqrt(1.0 + data[2][2] - data[0][0] - data[1][1]) * 2.0;
+        q.w = (data[1][0] - data[0][1]) / S;
+        q.x = (data[0][2] + data[2][0]) / S;
+        q.y = (data[1][2] + data[2][1]) / S;
+        q.z = 0.25 * S;
+    }
+
+    return q;
+}
+
 
 
 #endif //PHYSICSENGINE_QUATERNION_H

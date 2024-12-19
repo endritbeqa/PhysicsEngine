@@ -15,34 +15,12 @@ public:
         Vector3 velocity;
         Vector3 accelaration;
 
-        Derivative operator+(const Derivative&& d){
-           return Derivative(
-                this->velocity + d.velocity,
-                this->accelaration + d.accelaration
-            );
-        }
-
-        Derivative operator*(const Derivative&& d){
-            return Derivative(
-                    this->velocity * d.velocity,
-                    this->accelaration * d.accelaration
-            );
-        }
-
         Derivative operator+(const Derivative& d){
             return Derivative(
                     this->velocity + d.velocity,
                     this->accelaration + d.accelaration
             );
         }
-
-        Derivative operator*(const Derivative& d){
-            return Derivative(
-                    this->velocity * d.velocity,
-                    this->accelaration * d.accelaration
-            );
-        }
-
 
         Derivative operator*(double d){
             return Derivative(

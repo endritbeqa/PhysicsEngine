@@ -114,7 +114,8 @@
 				14,
 				15,
 				16,
-				17
+				17,
+				27
 			]
 		},
 		{
@@ -278,6 +279,11 @@
 			"compileGroupIndex" : 0,
 			"path" : "src/core/systems/ParticleSystem.cpp",
 			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/core/systems/RidgitBodySystem.h",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "STATIC_LIBRARY"
