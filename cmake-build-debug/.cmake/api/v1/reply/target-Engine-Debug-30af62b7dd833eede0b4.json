@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 44,
+				"line" : 47,
 				"parent" : 0
 			},
 			{
@@ -39,7 +39,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 45,
+				"line" : 48,
 				"parent" : 0
 			}
 		]
@@ -71,7 +71,6 @@
 			},
 			"sourceIndexes" : 
 			[
-				18,
 				19,
 				20,
 				21,
@@ -79,7 +78,9 @@
 				23,
 				24,
 				25,
-				26
+				26,
+				27,
+				30
 			]
 		}
 	],
@@ -115,14 +116,15 @@
 				15,
 				16,
 				17,
-				27
+				18,
+				28,
+				29
 			]
 		},
 		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				18,
 				19,
 				20,
 				21,
@@ -130,7 +132,9 @@
 				23,
 				24,
 				25,
-				26
+				26,
+				27,
+				30
 			]
 		}
 	],
@@ -148,7 +152,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/objects/3D/RidgitBody.h",
+			"path" : "include/core/objects/3D/RigitBody.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -228,6 +232,11 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "include/collisions/utils/Octree.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/core/objects/3D/Object3.cpp",
 			"sourceGroupIndex" : 1
@@ -271,7 +280,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core/objects/3D/RidgitBody.cpp",
+			"path" : "src/core/objects/3D/RigitBody.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -282,8 +291,19 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/systems/RidgitBodySystem.h",
+			"path" : "include/collisions/utils/AABB.h",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/math/Point3.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/core/systems/RigitBodySystem.cpp",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "STATIC_LIBRARY"

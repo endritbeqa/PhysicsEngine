@@ -1,6 +1,6 @@
 #include "include/core/objects/3D/Particle.h"
 
-Particle::Particle(){}
+Particle::Particle() = default;
 
 Particle::Particle(Vector3 pos, Vector3 vel, double m): Object3(pos,vel,m) {}
 

@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Particle_Demo"
+			"path" : "Demo"
 		}
 	],
 	"backtrace" : 1,
@@ -27,13 +27,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 48,
+				"line" : 51,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 51,
+				"line" : 53,
 				"parent" : 0
 			},
 			{
@@ -45,7 +45,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 50,
+				"line" : 52,
 				"parent" : 0
 			}
 		]
@@ -81,8 +81,7 @@
 			},
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -93,7 +92,7 @@
 			"id" : "Engine::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "Particle_Demo::@6890427a1f51a3e7e1df",
+	"id" : "Demo::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -114,8 +113,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "Particle_Demo",
-	"nameOnDisk" : "Particle_Demo",
+	"name" : "Demo",
+	"nameOnDisk" : "Demo",
 	"paths" : 
 	{
 		"build" : ".",
@@ -127,8 +126,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -137,13 +135,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Demos/ParticleDemo.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Demos/RiddgitBodyDemo.cpp",
+			"path" : "Demos/RigitBodyDemo.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

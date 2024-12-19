@@ -1,5 +1,5 @@
-#ifndef PHYSICSENGINE_RigitBODY_H
-#define PHYSICSENGINE_RigitBODY_H
+#ifndef PHYSICSENGINE_RIGITBODY_H
+#define PHYSICSENGINE_RIGITBODY_H
 
 #include <vector>
 #include "include/math/Matrix3.h"
@@ -20,6 +20,7 @@ public:
     Vector3 angularMomentum;
     Matrix3 Iinverse;
     Vector3 angularVelocity;
+    //TODO look if i need to use this for touque and other stuff and what to use forceAccum of object for
     Vector3 force;
     Vector3 torque;
 
@@ -52,6 +53,7 @@ public:
 
     };
 
+    RigitBody::Derivative calculateDerivative();
     RigitBody::Derivative calculateDerivative(RigitBody body);
     void updateState(Derivative d);
     RigitBody calculateState(Derivative d);
@@ -59,4 +61,4 @@ public:
 };
 
 
-#endif //PHYSICSENGINE_RigitBODY_H
+#endif //PHYSICSENGINE_RIGITBODY_H

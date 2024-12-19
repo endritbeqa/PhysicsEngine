@@ -1,13 +1,4 @@
 /home/endrit/Clion/CLion-2023.3.4/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/endrit/Clion/CLion-2023.3.4/clion-2023.3.4/bin/ninja/linux/x64/ninja -G Ninja -S /home/endrit/CLionProjects/PhysicsEngine -B /home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug
--- Configuring done (0.1s)
-CMake Error at CMakeLists.txt:44 (add_library):
-  Cannot find source file:
-
-    include/core/objects/3D/RigitBody.h
-
-
-CMake Error at CMakeLists.txt:44 (add_library):
-  No SOURCES given to target: Engine
-
-
-CMake Generate step failed.  Build files cannot be regenerated correctly.
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug

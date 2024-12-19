@@ -20,7 +20,6 @@ void ParticleSystem::step() {
     for (std::shared_ptr<Particle> p: particles) {
         for (std::shared_ptr<Plane> plane: planes) {
             if (plane->checkCollision(p)) {
-                //std::cout << "collision detected";
             }
         }
     }

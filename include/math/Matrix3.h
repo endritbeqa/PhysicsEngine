@@ -5,6 +5,7 @@
 #include "include/math/Vector3.h"
 #include <iostream>
 #include <cmath>
+#include <array>
 
 class Matrix3 {
 public:
@@ -151,10 +152,11 @@ public:
 };
 
 
-//TODO move this to Vector3.h without cousing circular includes
+//TODO fix this so it doesn't cause double declaration
+/*
 Matrix3 ToCrossMatrix(Vector3& v){
     return Matrix3(0,-v.z,v.y,v.z,0,-v.x,-v.y,v.x,0);
 }
-
+*/
 
 #endif //PHYSICSENGINE_MATRIX3_H

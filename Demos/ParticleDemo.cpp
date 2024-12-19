@@ -2,7 +2,7 @@
 #include "include/forces/GravityForce.h"
 #include "include/forces/SpringForce.h"
 
-
+/*
 int main() {
 
     ParticleSystem system = ParticleSystem();
@@ -45,3 +45,4 @@ int main() {
     std::cout << "Breakpoint";
 
 }
+*/

@@ -105,6 +105,9 @@ public:
 
 };
 
+
+//TODO fix this so it doesn't cause double declaration
+/*
 Quaternion rotationMatrixToQuaternion(const Matrix3& R) {
     //TODO A bit hacky but works since I can't overload the [] operator twice in C++20 (is possible in C++23)
     std::array<std::array<double,3>,3> data = R.m;
@@ -139,7 +142,6 @@ Quaternion rotationMatrixToQuaternion(const Matrix3& R) {
 
     return q;
 }
-
-
+*/
 
 #endif //PHYSICSENGINE_QUATERNION_H

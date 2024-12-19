@@ -98,8 +98,8 @@ build CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o: CXX_COMPILER__Engine_uns
   OBJECT_DIR = CMakeFiles/Engine.dir
   OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/collisions
 
-build CMakeFiles/Engine.dir/src/core/objects/3D/RidgitBody.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/core/objects/3D/RidgitBody.cpp || cmake_object_order_depends_target_Engine
-  DEP_FILE = CMakeFiles/Engine.dir/src/core/objects/3D/RidgitBody.cpp.o.d
+build CMakeFiles/Engine.dir/src/core/objects/3D/RigitBody.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/core/objects/3D/RigitBody.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/core/objects/3D/RigitBody.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
   OBJECT_DIR = CMakeFiles/Engine.dir
@@ -107,6 +107,13 @@ build CMakeFiles/Engine.dir/src/core/objects/3D/RidgitBody.cpp.o: CXX_COMPILER__
 
 build CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/core/systems/ParticleSystem.cpp || cmake_object_order_depends_target_Engine
   DEP_FILE = CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/core/systems
+
+build CMakeFiles/Engine.dir/src/core/systems/RigitBodySystem.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/core/systems/RigitBodySystem.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/core/systems/RigitBodySystem.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
   OBJECT_DIR = CMakeFiles/Engine.dir
@@ -120,7 +127,7 @@ build CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o: CXX_COMPILER_
 #############################################
 # Link the static library libEngine.a
 
-build libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/RidgitBody.cpp.o CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o
+build libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/RigitBody.cpp.o CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o CMakeFiles/Engine.dir/src/core/systems/RigitBodySystem.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/Engine.dir
   POST_BUILD = :
@@ -129,44 +136,37 @@ build libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug CMakeFiles/Engine.dir
   TARGET_PDB = Engine.a.dbg
 
 # =============================================================================
-# Object build statements for EXECUTABLE target Particle_Demo
+# Object build statements for EXECUTABLE target Demo
 
 
 #############################################
-# Order-only phony target for Particle_Demo
+# Order-only phony target for Demo
 
-build cmake_object_order_depends_target_Particle_Demo: phony || cmake_object_order_depends_target_Engine
+build cmake_object_order_depends_target_Demo: phony || cmake_object_order_depends_target_Engine
 
-build CMakeFiles/Particle_Demo.dir/Demos/ParticleDemo.cpp.o: CXX_COMPILER__Particle_Demo_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/Demos/ParticleDemo.cpp || cmake_object_order_depends_target_Particle_Demo
-  DEP_FILE = CMakeFiles/Particle_Demo.dir/Demos/ParticleDemo.cpp.o.d
+build CMakeFiles/Demo.dir/Demos/RigitBodyDemo.cpp.o: CXX_COMPILER__Demo_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/Demos/RigitBodyDemo.cpp || cmake_object_order_depends_target_Demo
+  DEP_FILE = CMakeFiles/Demo.dir/Demos/RigitBodyDemo.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine -I/include
-  OBJECT_DIR = CMakeFiles/Particle_Demo.dir
-  OBJECT_FILE_DIR = CMakeFiles/Particle_Demo.dir/Demos
-
-build CMakeFiles/Particle_Demo.dir/Demos/RiddgitBodyDemo.cpp.o: CXX_COMPILER__Particle_Demo_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/Demos/RiddgitBodyDemo.cpp || cmake_object_order_depends_target_Particle_Demo
-  DEP_FILE = CMakeFiles/Particle_Demo.dir/Demos/RiddgitBodyDemo.cpp.o.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine -I/include
-  OBJECT_DIR = CMakeFiles/Particle_Demo.dir
-  OBJECT_FILE_DIR = CMakeFiles/Particle_Demo.dir/Demos
+  OBJECT_DIR = CMakeFiles/Demo.dir
+  OBJECT_FILE_DIR = CMakeFiles/Demo.dir/Demos
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Particle_Demo
+# Link build statements for EXECUTABLE target Demo
 
 
 #############################################
-# Link the executable Particle_Demo
+# Link the executable Demo
 
-build Particle_Demo: CXX_EXECUTABLE_LINKER__Particle_Demo_Debug CMakeFiles/Particle_Demo.dir/Demos/ParticleDemo.cpp.o CMakeFiles/Particle_Demo.dir/Demos/RiddgitBodyDemo.cpp.o | libEngine.a || libEngine.a
+build Demo: CXX_EXECUTABLE_LINKER__Demo_Debug CMakeFiles/Demo.dir/Demos/RigitBodyDemo.cpp.o | libEngine.a || libEngine.a
   FLAGS = -g
   LINK_LIBRARIES = libEngine.a
-  OBJECT_DIR = CMakeFiles/Particle_Demo.dir
+  OBJECT_DIR = CMakeFiles/Demo.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = Particle_Demo
-  TARGET_PDB = Particle_Demo.dbg
+  TARGET_FILE = Demo
+  TARGET_PDB = Demo.dbg
 
 
 #############################################
@@ -204,7 +204,7 @@ build Engine: phony libEngine.a
 #############################################
 # Folder: /home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug
 
-build all: phony libEngine.a Particle_Demo
+build all: phony libEngine.a Demo
 
 # =============================================================================
 # Built-in targets

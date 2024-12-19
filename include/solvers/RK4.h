@@ -20,20 +20,7 @@ public:
         typename state::Derivative k4 = y3.calculateDerivative() ;
 
         typename state::Derivative step = (k1 + k2 * 2 + k3 * 2 + k4) * (dt / 6.0);
-
         obj->updateState(step);
-
-
-
-        /*typename state::Derivative a = obj->calculateDerivative(*obj)*dt;
-        typename state::Derivative b = obj->calculateDerivative(obj->calculateState(a * (0.5 * dt)))*(0.5 * dt);
-        typename state::Derivative c = obj->calculateDerivative(obj->calculateState(b * (0.5 * dt)))*(0.5 * dt);
-        typename state::Derivative d = obj->calculateDerivative(obj->calculateState(c * dt)) * dt;
-        typename state::Derivative step = (a + b * 2 + c * 2 + d) * (1.0 / 6.0);
-
-        obj->updateState(step);
-    */
-
     }
 
 };
