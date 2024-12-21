@@ -119,6 +119,27 @@ build CMakeFiles/Engine.dir/src/core/systems/RigitBodySystem.cpp.o: CXX_COMPILER
   OBJECT_DIR = CMakeFiles/Engine.dir
   OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/core/systems
 
+build CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/AABB.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/collisions/BoundingVolumes/AABB.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/AABB.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/collisions/BoundingVolumes
+
+build CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/Sphere.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/collisions/BoundingVolumes/Sphere.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/Sphere.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/collisions/BoundingVolumes
+
+build CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/OBB.cpp.o: CXX_COMPILER__Engine_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/src/collisions/BoundingVolumes/OBB.cpp || cmake_object_order_depends_target_Engine
+  DEP_FILE = CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/OBB.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine
+  OBJECT_DIR = CMakeFiles/Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles/Engine.dir/src/collisions/BoundingVolumes
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target Engine
@@ -127,7 +148,7 @@ build CMakeFiles/Engine.dir/src/core/systems/RigitBodySystem.cpp.o: CXX_COMPILER
 #############################################
 # Link the static library libEngine.a
 
-build libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/RigitBody.cpp.o CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o CMakeFiles/Engine.dir/src/core/systems/RigitBodySystem.cpp.o
+build libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o CMakeFiles/Engine.dir/src/forces/DragForce.cpp.o CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o CMakeFiles/Engine.dir/src/core/objects/3D/RigitBody.cpp.o CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o CMakeFiles/Engine.dir/src/core/systems/RigitBodySystem.cpp.o CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/AABB.cpp.o CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/Sphere.cpp.o CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/OBB.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/Engine.dir
   POST_BUILD = :

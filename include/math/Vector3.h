@@ -7,13 +7,16 @@
 
 #include <cmath>
 #include <iostream>
-
+#include "Point3.h"
 
 class Vector3{
 public:
     double x, y, z;
     Vector3(): x(0.0f), y(0.0f), z(0.0f) {}
     Vector3(double x, double y, double z) : x(x), y(y), z(z) {};
+    Vector3(Point3 &p): x(p.x), y(p.y), z(p.z) {};
+    Vector3(Point3 p): x(p.x), y(p.y), z(p.z) {};
+    Vector3(Point3* p): x(p->x), y(p->y), z(p->z) {};
     Vector3(Vector3 &v): x(v.x), y(v.y), z(v.z) {};
     Vector3(const Vector3 &v): x(v.x), y(v.y), z(v.z) {};
 

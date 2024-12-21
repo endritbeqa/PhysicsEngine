@@ -41,6 +41,12 @@ set(ENGINE_SOURCES
         include/collisions/utils/AABB.h
         include/math/Point3.h
         src/core/systems/RigitBodySystem.cpp
+        include/collisions/BoundingVolumes/BoundingVolume.h
+        include/collisions/BoundingVolumes/Sphere.h
+        include/collisions/BoundingVolumes/OBB.h
+        src/collisions/BoundingVolumes/AABB.cpp
+        src/collisions/BoundingVolumes/Sphere.cpp
+        src/collisions/BoundingVolumes/OBB.cpp
 
 )
 
