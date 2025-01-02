@@ -2,6 +2,11 @@
 #define PHYSICSENGINE_MATRIX3_H
 
 
+// Matrix's are row major meaning vectors are stored as      [--v1--]
+//                                                       M = [--v2--]
+//                                                           [--v3--]
+
+
 #include "include/math/Vector3.h"
 #include <iostream>
 #include <cmath>
@@ -9,43 +14,56 @@
 
 class Matrix3 {
 public:
-    std::array<std::array<double,3>,3> m; // 3x3 matrix stored in a 2D array
+    std::array<std::array<double, 3>, 3> m;
 
-    // Default constructor: Identity matrix
     Matrix3() {
-        // Initialize as identity matrix
-        m[0][0] = 1.0f; m[0][1] = 0.0f; m[0][2] = 0.0f;
-        m[1][0] = 0.0f; m[1][1] = 1.0f; m[1][2] = 0.0f;
-        m[2][0] = 0.0f; m[2][1] = 0.0f; m[2][2] = 1.0f;
+        m[0][0] = 1.0f;
+        m[0][1] = 0.0f;
+        m[0][2] = 0.0f;
+        m[1][0] = 0.0f;
+        m[1][1] = 1.0f;
+        m[1][2] = 0.0f;
+        m[2][0] = 0.0f;
+        m[2][1] = 0.0f;
+        m[2][2] = 1.0f;
     }
 
-    // Constructor to initialize matrix with specific values
     Matrix3(double m00, double m01, double m02,
             double m10, double m11, double m12,
             double m20, double m21, double m22) {
-        m[0][0] = m00; m[0][1] = m01; m[0][2] = m02;
-        m[1][0] = m10; m[1][1] = m11; m[1][2] = m12;
-        m[2][0] = m20; m[2][1] = m21; m[2][2] = m22;
+        m[0][0] = m00;
+        m[0][1] = m01;
+        m[0][2] = m02;
+        m[1][0] = m10;
+        m[1][1] = m11;
+        m[1][2] = m12;
+        m[2][0] = m20;
+        m[2][1] = m21;
+        m[2][2] = m22;
     }
 
-    Matrix3(const Vector3& v1,const Vector3& v2,const Vector3& v3){
-        m[0][0] = v1.x; m[0][1] = v1.y; m[0][2] = v1.z;
-        m[1][0] = v2.x; m[1][1] = v2.y; m[1][2] = v2.z;
-        m[2][0] = v3.x; m[2][1] = v3.y; m[2][2] = v3.z;
+    Matrix3(const Vector3 &v1, const Vector3 &v2, const Vector3 &v3) {
+        m[0][0] = v1.x;
+        m[0][1] = v1.y;
+        m[0][2] = v1.z;
+        m[1][0] = v2.x;
+        m[1][1] = v2.y;
+        m[1][2] = v2.z;
+        m[2][0] = v3.x;
+        m[2][1] = v3.y;
+        m[2][2] = v3.z;
     }
 
 
-
-    double& operator()(int row, int col) {
+    double &operator()(int row, int col) {
         return m[row][col];
     }
 
-    const double& operator()(int row, int col) const {
+    const double &operator()(int row, int col) const {
         return m[row][col];
     }
 
-    // Matrix multiplication
-    Matrix3 operator*(const Matrix3& other) const {
+    Matrix3 operator*(const Matrix3 &other) const {
         Matrix3 result;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -58,8 +76,7 @@ public:
         return result;
     }
 
-    // Matrix-vector multiplication (3D vector)
-    Vector3 operator*(const Vector3& vec) const {
+    Vector3 operator*(const Vector3 &vec) const {
         Vector3 result;
         result.x = m[0][0] * vec.x + m[0][1] * vec.y + m[0][2] * vec.z;
         result.y = m[1][0] * vec.x + m[1][1] * vec.y + m[1][2] * vec.z;
@@ -67,7 +84,17 @@ public:
         return result;
     }
 
-    // Transpose of the matrix
+    Matrix3 operator+(double d) {
+        Matrix3 result = *this;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                result.m[i][j] += d;
+            }
+        }
+        return result;
+    }
+
+
     Matrix3 transpose() const {
         return Matrix3(
                 m[0][0], m[1][0], m[2][0],

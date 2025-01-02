@@ -35,7 +35,7 @@ std::array<Point3*, 2> AABB::getExtremePoints(Vector3& direction, std::array<Poi
     Point3* min = &points[0];
     Point3* max = &points[0];
 
-    for(Point3 p: points){
+    for(Point3& p: points){
         double proj = direction.dot(Vector3(p));
         if(proj < minValue){
             minValue = proj;

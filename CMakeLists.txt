@@ -25,6 +25,15 @@ set(ENGINE_HEADERS
         include/collisions/Plane.h
         include/core/systems/ParticleSystem.h
         include/collisions/utils/Octree.h
+        include/collisions/utils/AABB.h
+        include/collisions/BoundingVolumes/BoundingVolume.h
+        include/collisions/BoundingVolumes/Sphere.h
+        include/collisions/BoundingVolumes/OBB.h
+        include/collisions/BoundingVolumes/AABB.h
+        include/math/utils.h
+        include/collisions/ClosestPoint.h
+        include/math/Plane3.h
+
 )
 
 
@@ -38,15 +47,11 @@ set(ENGINE_SOURCES
         src/collisions/Plane.cpp
         src/core/objects/3D/RigitBody.cpp
         src/core/systems/ParticleSystem.cpp
-        include/collisions/utils/AABB.h
-        include/math/Point3.h
         src/core/systems/RigitBodySystem.cpp
-        include/collisions/BoundingVolumes/BoundingVolume.h
-        include/collisions/BoundingVolumes/Sphere.h
-        include/collisions/BoundingVolumes/OBB.h
         src/collisions/BoundingVolumes/AABB.cpp
         src/collisions/BoundingVolumes/Sphere.cpp
         src/collisions/BoundingVolumes/OBB.cpp
+        src/math/math.cpp
 
 )
 

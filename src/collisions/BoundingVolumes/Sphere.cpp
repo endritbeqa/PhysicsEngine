@@ -1,5 +1,8 @@
 #include "include/collisions/BoundingVolumes/Sphere.h"
 #include "include/math/Vector3.h"
+#include "include/math/utils.h"
+
+#include <random>
 
 Sphere::Sphere() : center(Point3()), radius(0.5) {}
 
@@ -24,6 +27,29 @@ void Sphere::updateSphere(Point3 *p) {
         center = center * k;
     }
 
+}
+
+template<std::size_t n>
+void Sphere::RitterIterative(std::array<Point3, n> &points) {
+    const int NUM_ITER = 8;
+    RitterSphere(points);
+    std::random_device rd;  // Seed for randomness
+    std::mt19937 gen(rd()); // Standard mersenne_twister_engine
+    Sphere s2 = Sphere();
+    for (int k = 0; k < NUM_ITER; k++) {
+        s2.radius = s2.radius * 0.95f;
+        for (int i = 0; i < n; i++) {
+            std::uniform_int_distribution<std::size_t> dist(i, n - 1);
+            std::size_t index1 = dist(gen);
+            std::size_t index2 = dist(gen);
+            while (index1 == index2) {
+                index2 = dist(gen);
+            }
+            std::swap(points[index1], points[index2]);
+            SphereOfSphereAndPt(s2, points[i]);
+        }
+        if (s2.radius < radius) *this = s2;
+    }
 }
 
 template<std::size_t n>
