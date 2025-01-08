@@ -54,6 +54,19 @@ Point3 ClosestPtPointToAABB(Point3 p, AABB aabb) {
     return Point3(x, y, z);
 }
 
+
+//TODO test this
+float DistPointAABB(Point3 p, AABB b) {
+    float distance = 0.0f;
+
+    float distX = std::abs(b.center.x - p.x) - b.halfSizeX;
+    float distY = std::abs(b.center.y - p.y) - b.halfSizeY;
+    float distZ = std::abs(b.center.z - p.z) - b.halfSizeZ;
+
+    return std::sqrt(distX * distX + distY * distY + distZ * distZ);
+}
+
+
 Point3 ClosestPtPointToOBB(Point3 p, OBB obb) {
 
     Vector3 p_ObbCenter = Vector3(p - obb.center);

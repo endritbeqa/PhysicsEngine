@@ -4,7 +4,6 @@
 #include <array>
 #include "include/math/Point3.h"
 
-
 class Sphere{
 public:
     Point3 center;

@@ -33,6 +33,7 @@ set(ENGINE_HEADERS
         include/math/utils.h
         include/collisions/ClosestPoint.h
         include/math/Plane3.h
+        include/collisions/PrimitiveTests.h
 
 )
 
