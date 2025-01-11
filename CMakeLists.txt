@@ -19,21 +19,24 @@ set(ENGINE_HEADERS
         include/math/Matrix2.h
         include/math/Matrix3.h
         include/math/Quaternion.h
+        include/math/Plane3.h
+        include/math/utils.h
         include/solvers/Solver.h
         include/solvers/Euler.h
         include/solvers/RK4.h
-        include/collisions/Plane.h
         include/core/systems/ParticleSystem.h
+        include/collisions/Plane.h
         include/collisions/utils/Octree.h
         include/collisions/utils/AABB.h
         include/collisions/BoundingVolumes/BoundingVolume.h
         include/collisions/BoundingVolumes/Sphere.h
         include/collisions/BoundingVolumes/OBB.h
         include/collisions/BoundingVolumes/AABB.h
-        include/math/utils.h
-        include/collisions/ClosestPoint.h
-        include/math/Plane3.h
-        include/collisions/PrimitiveTests.h
+        include/collisions/PrimitiveTests/PrimitiveTests.h
+        include/collisions/PrimitiveTests/ClosestPoint.h
+        include/collisions/BoundingVolumeHierarchies/TopDown.h
+        include/collisions/BoundingVolumeHierarchies/BottomUp.h
+        include/collisions/BoundingVolumeHierarchies/Insertion.h
 
 )
 

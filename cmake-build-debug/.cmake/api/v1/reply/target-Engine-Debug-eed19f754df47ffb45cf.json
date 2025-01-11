@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 59,
+				"line" : 62,
 				"parent" : 0
 			},
 			{
@@ -39,7 +39,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 60,
+				"line" : 63,
 				"parent" : 0
 			}
 		]
@@ -71,9 +71,6 @@
 			},
 			"sourceIndexes" : 
 			[
-				28,
-				29,
-				30,
 				31,
 				32,
 				33,
@@ -84,7 +81,10 @@
 				38,
 				39,
 				40,
-				41
+				41,
+				42,
+				43,
+				44
 			]
 		}
 	],
@@ -129,16 +129,16 @@
 				24,
 				25,
 				26,
-				27
+				27,
+				28,
+				29,
+				30
 			]
 		},
 		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				28,
-				29,
-				30,
 				31,
 				32,
 				33,
@@ -149,7 +149,10 @@
 				38,
 				39,
 				40,
-				41
+				41,
+				42,
+				43,
+				44
 			]
 		}
 	],
@@ -222,6 +225,16 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "include/math/Plane3.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/math/utils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
 			"path" : "include/solvers/Solver.h",
 			"sourceGroupIndex" : 0
 		},
@@ -237,12 +250,12 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/collisions/Plane.h",
+			"path" : "include/core/systems/ParticleSystem.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/core/systems/ParticleSystem.h",
+			"path" : "include/collisions/Plane.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -277,22 +290,27 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/math/utils.h",
+			"path" : "include/collisions/PrimitiveTests/PrimitiveTests.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/collisions/ClosestPoint.h",
+			"path" : "include/collisions/PrimitiveTests/ClosestPoint.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/math/Plane3.h",
+			"path" : "include/collisions/BoundingVolumeHierarchies/TopDown.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/collisions/PrimitiveTests.h",
+			"path" : "include/collisions/BoundingVolumeHierarchies/BottomUp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/collisions/BoundingVolumeHierarchies/Insertion.h",
 			"sourceGroupIndex" : 0
 		},
 		{

@@ -1,10 +1,10 @@
 # ninja log v5
-5710	5801	1735859009589297453	Demo	9d5ad3a61606aae1
+1514	1630	1736295956798199475	Demo	9d5ad3a61606aae1
 2443	3567	1735859007355297070	CMakeFiles/Engine.dir/src/core/objects/3D/RigitBody.cpp.o	22688ed86fac6edb
 3567	4381	1735859008169297210	CMakeFiles/Engine.dir/src/math/math.cpp.o	279b9d176986d053
-2579	3797	1735859007585297110	CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o	1303784b03c01ee3
+4	1467	1736295956636199931	CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o	1303784b03c01ee3
 1730	3243	1734535944353122383	CMakeFiles/Particle_Demo.dir/Demos/Particle_Demo.cpp.o	72ea34e3039fd39e
-1	49	1736279030924612115	build.ninja	7cf923d712e2cc6
+1	49	1736622450557566292	build.ninja	7cf923d712e2cc6
 1	752	1735859004540296573	CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/AABB.cpp.o	31da5e522151455c
 4	95	1733785169124881976	CMakeFiles/Engine.dir/src/solvers/Euler.cpp.o	cce950a58fc444de
 1	635	1734034636547373813	CMakeFiles/Engine.dir/src/forces/Force.cpp.o	c840ba01362eb377
@@ -12,7 +12,7 @@
 752	1674	1735859005463296738	CMakeFiles/Engine.dir/src/forces/GravityForce.cpp.o	33dfeb5bf5b87cfd
 2	1101	1735859004889296636	CMakeFiles/Engine.dir/src/core/objects/3D/Particle.cpp.o	20fc31fb56f16d61
 3741	4887	1734645346052500145	CMakeFiles/Particle_Demo.dir/Demos/RigitBodyDemo.cpp.o	71c9b93b757aa5de
-3797	4974	1735859008763297312	CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/Sphere.cpp.o	71062fd1caa4f253
+5	1174	1736295956342200758	CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/Sphere.cpp.o	71062fd1caa4f253
 1	905	1735859004694296601	CMakeFiles/Engine.dir/src/core/objects/3D/Object3.cpp.o	2a2db6c3b0ab9f7c
 1	843	1734536317233280215	CMakeFiles/Engine.dir/src/core/objects/3D/RidgitBody.cpp.o	688a310bc2c498db
 5	503	1733785169532879836	CMakeFiles/Engine.dir/src/solvers/RK4.cpp.o	e2c09a56a4f76468
@@ -23,12 +23,7 @@
 83	1042	1733785170071877008	CMakeFiles/Particle_Demo.dir/Demos/Particles.cpp.o	b264676a18d1e1e5
 4381	5710	1735859009498297437	CMakeFiles/Demo.dir/Demos/RigitBodyDemo.cpp.o	78e9ed69669b3aa7
 1101	2443	1735859006231296873	CMakeFiles/Engine.dir/src/forces/SpringForce.cpp.o	2c91311cb4e27e4c
-2004	2862	1735859006650296947	CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o	578e44bd4fdcf69b
-905	2004	1735859005792296796	CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o	3f7589e3e34da1e
-4974	4997	1735859008786297316	libEngine.a	1eb89aef06caef50
-2	938	1734644266635075878	CMakeFiles/Particle_Demo.dir/Demos/ParticleDemo.cpp.o	68a4b4322870097c
 4	1082	1736295956250201016	CMakeFiles/Engine.dir/src/collisions/Plane.cpp.o	578e44bd4fdcf69b
-5	1174	1736295956342200758	CMakeFiles/Engine.dir/src/collisions/BoundingVolumes/Sphere.cpp.o	71062fd1caa4f253
-4	1467	1736295956636199931	CMakeFiles/Engine.dir/src/core/systems/ParticleSystem.cpp.o	1303784b03c01ee3
+905	2004	1735859005792296796	CMakeFiles/Engine.dir/src/forces/FrictionForce.cpp.o	3f7589e3e34da1e
 1467	1514	1736295956683199799	libEngine.a	1eb89aef06caef50
-1514	1630	1736295956798199475	Demo	9d5ad3a61606aae1
+2	938	1734644266635075878	CMakeFiles/Particle_Demo.dir/Demos/ParticleDemo.cpp.o	68a4b4322870097c
