@@ -1,0 +1,1 @@
+//Empty file for CMake to determine link language

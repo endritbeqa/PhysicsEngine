@@ -1,0 +1,4 @@
+/home/endrit/CLionProjects/PhysicsEngine/Physics/build/CMakeFiles/Engine.dir
+/home/endrit/CLionProjects/PhysicsEngine/Physics/build/CMakeFiles/Demo.dir
+/home/endrit/CLionProjects/PhysicsEngine/Physics/build/CMakeFiles/edit_cache.dir
+/home/endrit/CLionProjects/PhysicsEngine/Physics/build/CMakeFiles/rebuild_cache.dir
