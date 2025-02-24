@@ -9,6 +9,7 @@
 class Texture {
 public:
     std::string filepath;
+    std::string type;
     int width, height, nrChannels;
     unsigned int id;
     unsigned char *data;

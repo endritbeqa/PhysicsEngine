@@ -75,8 +75,8 @@ Matrix3 calculateCovariance(std::array<Point3, n> &points) {
 }
 
 
-std::array<double, 2> SymSchur2(Matrix3 &a, int p, int q) {
-    double c, s;
+std::array<float, 2> SymSchur2(Matrix3 &a, int p, int q) {
+    float c, s;
     if (abs(a.m[p][q]) > 0.0001f) {
         float r = (a.m[q][q] - a.m[p][p]) / (2.0f * a.m[p][q]);
         float t;
@@ -90,14 +90,14 @@ std::array<double, 2> SymSchur2(Matrix3 &a, int p, int q) {
         c = 1.0f;
         s = 0.0f;
     }
-    return std::array<double, 2>{c, s};
+    return std::array<float, 2>{c, s};
 }
 
 Matrix3 Jacobi(Matrix3 &a) {
 
 
     int i, j, n, p, q;
-    double prevoff, c, s;
+    float prevoff, c, s;
     Matrix3 J, b, t;
     Matrix3 v = Matrix3();
 
@@ -117,7 +117,7 @@ Matrix3 Jacobi(Matrix3 &a) {
         }
 // Compute the Jacobi rotation matrix J(p, q, theta)
 // (This code can be optimized for the three different cases of rotation)
-        std::array<double, 2> schur = SymSchur2(a, p, q);
+        std::array<float, 2> schur = SymSchur2(a, p, q);
         c = schur[0];
         s = schur[1];
         J = Matrix3();

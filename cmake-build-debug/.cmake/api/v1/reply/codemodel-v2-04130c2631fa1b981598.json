@@ -1,0 +1,240 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "math",
+					"jsonFile" : "directory-math-Debug-71457bd15370d33fb0dd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "math",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "Physics",
+					"jsonFile" : "directory-Physics-Debug-6cb3d4b01d17f8442d1b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Physics",
+					"targetIndexes" : 
+					[
+						1,
+						3
+					]
+				},
+				{
+					"build" : "Rendering",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-Rendering-Debug-db71d97549184f325401.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Rendering",
+					"targetIndexes" : 
+					[
+						0,
+						4
+					]
+				},
+				{
+					"build" : "Rendering/libs/glfw-3.4",
+					"childIndexes" : 
+					[
+						5,
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-Rendering.libs.glfw-3.4-Debug-9b94df9b1dfe3c1219f7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 1,
+					"source" : "Rendering/libs/glfw-3.4",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "Rendering/libs/glfw-3.4/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-Rendering.libs.glfw-3.4.src-Debug-64068fc60c96c08a70f9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 1,
+					"source" : "Rendering/libs/glfw-3.4/src",
+					"targetIndexes" : 
+					[
+						5,
+						7
+					]
+				},
+				{
+					"build" : "Rendering/libs/glfw-3.4/docs",
+					"jsonFile" : "directory-Rendering.libs.glfw-3.4.docs-Debug-8d956705c847ecaa3280.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 1,
+					"source" : "Rendering/libs/glfw-3.4/docs"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "PhysicsEngine",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4,
+						5,
+						6
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "DEPENDENCIES::@a1361d0349323b36db10",
+					"jsonFile" : "target-DEPENDENCIES-Debug-2135a22bff46fb56f86c.json",
+					"name" : "DEPENDENCIES",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Engine::@b19fc5f2f17e865e287b",
+					"jsonFile" : "target-Engine-Debug-b3d403a51b06923d7c25.json",
+					"name" : "Engine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Math::@874b28b4c7a3e614380d",
+					"jsonFile" : "target-Math-Debug-59b64a35372e944ee1a3.json",
+					"name" : "Math",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "PhysicsDemo::@b19fc5f2f17e865e287b",
+					"jsonFile" : "target-PhysicsDemo-Debug-97081b7c9ab294e94231.json",
+					"name" : "PhysicsDemo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Rendering::@a1361d0349323b36db10",
+					"jsonFile" : "target-Rendering-Debug-42d7db287bc95d530efc.json",
+					"name" : "Rendering",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "glfw::@39a37f5f85f6c776f3c5",
+					"jsonFile" : "target-glfw-Debug-25a2d96543d9a0bb2856.json",
+					"name" : "glfw",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "uninstall::@24283a0d605c95364915",
+					"jsonFile" : "target-uninstall-Debug-b056a3f285ae31985868.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "update_mappings::@39a37f5f85f6c776f3c5",
+					"jsonFile" : "target-update_mappings-Debug-d85eaf64fe908324d1be.json",
+					"name" : "update_mappings",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/endrit/CLionProjects/PhysicsEngine/cmake-build-debug",
+		"source" : "/home/endrit/CLionProjects/PhysicsEngine"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

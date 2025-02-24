@@ -1,2 +1,0 @@
-/usr/bin/ar qc libDEPENDENCIES.a CMakeFiles/DEPENDENCIES.dir/shaders/loadShader.cpp.o CMakeFiles/DEPENDENCIES.dir/libs/glad/glad.c.o CMakeFiles/DEPENDENCIES.dir/libs/stbi/stb_image.cpp.o CMakeFiles/DEPENDENCIES.dir/src/window.cpp.o CMakeFiles/DEPENDENCIES.dir/src/texture.cpp.o CMakeFiles/DEPENDENCIES.dir/src/Geomtries.cpp.o
-/usr/bin/ranlib libDEPENDENCIES.a

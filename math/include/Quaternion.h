@@ -11,12 +11,12 @@
 
 class Quaternion {
 public:
-    double w, x, y, z;
+    float w, x, y, z;
 
     Quaternion() : w(1.0f), x(0.0f), y(0.0f), z(0.0f) {}
 
-    Quaternion(double w, double x, double y, double z) : w(w), x(x), y(y), z(z) {}
-    Quaternion(double w, Vector3 v) : w(w), x(v.x), y(v.y), z(v.z) {}
+    Quaternion(float w, float x, float y, float z) : w(w), x(x), y(y), z(z) {}
+    Quaternion(float w, Vector3 v) : w(w), x(v.x), y(v.y), z(v.z) {}
 
     Quaternion operator+(const Quaternion &other) {
         return Quaternion(w + other.w, x + other.x, y + other.y, z + other.z);
@@ -33,7 +33,7 @@ public:
                           w * other.z + x * other.y - y * other.x + z * other.w);
     }
 
-    Quaternion operator*(const double &scalar) {
+    Quaternion operator*(const float &scalar) {
         return Quaternion(w * scalar, x * scalar, y * scalar, z * scalar);
     }
 
@@ -41,12 +41,12 @@ public:
         return Quaternion(w, -x, -y, -z);
     }
 
-    double magnitude() const {
+    float magnitude() const {
         return std::sqrt(w * w + x * x + y * y + z * z);
     }
 
     void normalize() {
-        double norm = magnitude();
+        float norm = magnitude();
         if (norm == 0) {
             std::cerr << "Quaternion has magnitude 0!" << std::endl;
         } else {
@@ -58,7 +58,7 @@ public:
     }
 
     Quaternion normalized() {
-        double norm = magnitude();
+        float norm = magnitude();
         if (norm == 0) {
             std::cerr << "Quaternion has magnitude 0!" << std::endl;
             return (*this);
@@ -72,7 +72,7 @@ public:
     }
 
     Quaternion inverse() const {
-        double norm = magnitude();
+        float norm = magnitude();
         return conjugate() * (1.0f / (norm * norm));
     }
 
@@ -82,9 +82,9 @@ public:
         return result;
     }
 
-    static Quaternion fromAxisAngle(double angle, Vector3 &v) {
-        double halfAngle = angle / 2.0f;
-        double sinHalfAngle = std::sin(halfAngle);
+    static Quaternion fromAxisAngle(float angle, Vector3 &v) {
+        float halfAngle = angle / 2.0f;
+        float sinHalfAngle = std::sin(halfAngle);
         return Quaternion(std::cos(halfAngle),
                           v.x * sinHalfAngle,
                           v.y * sinHalfAngle,
@@ -106,34 +106,34 @@ public:
 };
 
 
-//TODO fix this so it doesn't cause double declaration
+//TODO fix this so it doesn't cause float declaration
 /*
 Quaternion rotationMatrixToQuaternion(const Matrix3& R) {
     //TODO A bit hacky but works since I can't overload the [] operator twice in C++20 (is possible in C++23)
-    std::array<std::array<double,3>,3> data = R.m;
+    std::array<std::array<float,3>,3> data = R.m;
     Quaternion q;
-    double trace = data[0][0] + data[1][1] + data[2][2]; // Trace of the matrix
+    float trace = data[0][0] + data[1][1] + data[2][2]; // Trace of the matrix
 
     if (trace > 0.0) {
-        double S = sqrt(trace + 1.0) * 2.0; // S = 4 * q.w
+        float S = sqrt(trace + 1.0) * 2.0; // S = 4 * q.w
         q.w = 0.25 * S;
         q.x = (data[2][1] - data[1][2]) / S;
         q.y = (data[0][2] - data[2][0]) / S;
         q.z = (data[1][0] - data[0][1]) / S;
     } else if ((data[0][0] > data[1][1]) && (data[0][0] > data[2][2])) {
-        double S = sqrt(1.0 + data[0][0] - data[1][1] - data[2][2]) * 2.0;
+        float S = sqrt(1.0 + data[0][0] - data[1][1] - data[2][2]) * 2.0;
         q.w = (data[2][1] - data[1][2]) / S;
         q.x = 0.25 * S;
         q.y = (data[0][1] + data[1][0]) / S;
         q.z = (data[0][2] + data[2][0]) / S;
     } else if (data[1][1] > data[2][2]) {
-        double S = sqrt(1.0 + data[1][1] - data[0][0] - data[2][2]) * 2.0;
+        float S = sqrt(1.0 + data[1][1] - data[0][0] - data[2][2]) * 2.0;
         q.w = (data[0][2] - data[2][0]) / S;
         q.x = (data[0][1] + data[1][0]) / S;
         q.y = 0.25 * S;
         q.z = (data[1][2] + data[2][1]) / S;
     } else {
-        double S = sqrt(1.0 + data[2][2] - data[0][0] - data[1][1]) * 2.0;
+        float S = sqrt(1.0 + data[2][2] - data[0][0] - data[1][1]) * 2.0;
         q.w = (data[1][0] - data[0][1]) / S;
         q.x = (data[0][2] + data[2][0]) / S;
         q.y = (data[1][2] + data[2][1]) / S;

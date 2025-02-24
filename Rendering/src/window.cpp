@@ -50,7 +50,6 @@ GLFWwindow* getGLFWwindow(int SCREEN_WIDTH, int SCREEN_HEIGHT, bool debugContext
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, debugContext);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-
     // Create window
     GLFWwindow *window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Hello", nullptr, nullptr);
     if (!window) {

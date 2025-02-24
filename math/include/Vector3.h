@@ -10,13 +10,13 @@
 
 class Vector3 {
 public:
-    double x, y, z;
+    float x, y, z;
 
     Vector3() : x(0.0f), y(0.0f), z(0.0f) {}
 
-    Vector3(double x, double y, double z) : x(x), y(y), z(z) {};
+    Vector3(float x, float y, float z) : x(x), y(y), z(z) {};
 
-    Vector3(std::array<double,3> &a) : x(a[0]), y(a[1]), z(a[2]) {};
+    Vector3(std::array<float,3> &a) : x(a[0]), y(a[1]), z(a[2]) {};
 
     Vector3(Point3 &p) : x(p.x), y(p.y), z(p.z) {};
 
@@ -34,15 +34,15 @@ public:
         return Vector3(x - other.x, y - other.y, z - other.z);
     }
 
-    Vector3 operator*(double scalar) const {
+    Vector3 operator*(float scalar) const {
         return Vector3(x * scalar, y * scalar, z * scalar);
     }
 
-    Vector3 operator/(double scalar) const {
+    Vector3 operator/(float scalar) const {
         return Vector3(x / scalar, y / scalar, z / scalar);
     }
 
-    double operator[](int i) const {
+    float operator[](int i) const {
         switch (i) {
             case 0:
                 return x;
@@ -56,20 +56,20 @@ public:
     }
 
 
-    double dot(const Vector3 &other) const {
+    float dot(const Vector3 &other) const {
         return x * other.x + y * other.y + z * other.z;
     }
 
-    double norm() const {
+    float norm() const {
         return std::sqrt(x * x + y * y + z * z);
     }
 
-    double normSquared() const {
+    float normSquared() const {
         return x * x + y * y * z * z;
     }
 
     void normalize() {
-        double len = norm();
+        float len = norm();
         if (len > 0.0f) {
             x /= len;
             y /= len;
@@ -78,7 +78,7 @@ public:
     }
 
     Vector3 normalized() const {
-        double len = norm();
+        float len = norm();
         if (len > 0.0f) {
             return Vector3(x / len, y / len, z / len);
         }

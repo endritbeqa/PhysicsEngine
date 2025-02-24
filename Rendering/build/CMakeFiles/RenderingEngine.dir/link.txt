@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/RenderingEngine.dir/src/main.cpp.o -o RenderingEngine  libs/glfw-3.4/src/libglfw3.a libDEPENDENCIES.a -ldl -lpthread /usr/lib/x86_64-linux-gnu/librt.so -lm -ldl

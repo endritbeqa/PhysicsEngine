@@ -1,11 +1,8 @@
 cmake_minimum_required(VERSION 3.24)
-project(PhysicsEngine)
 set(CMAKE_CXX_STANDARD 20)
 
 get_filename_component(PARENT_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${PARENT_DIR})
-
-set(Math_Library ${PARENT_DIR}/math/build/libMath.a)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} )
 
 set(ENGINE_HEADERS
         include/core/objects/3D/Object3.h
@@ -52,9 +49,9 @@ set(ENGINE_SOURCES
         src/collisions/BoundingVolumes/OBB.cpp
 )
 
-add_library(Engine ${ENGINE_HEADERS} ${ENGINE_SOURCES} ${Math_Library})
+add_library(Engine STATIC ${ENGINE_HEADERS} ${ENGINE_SOURCES})
 target_compile_features(Engine PUBLIC cxx_std_20)
 
-add_executable(Demo  Demos/RigitBodyDemo.cpp)
-target_include_directories(Demo PRIVATE /include)
-target_link_libraries(Demo PUBLIC Engine)
+add_executable(PhysicsDemo Demos/RigitBodyDemo.cpp)
+target_include_directories(PhysicsDemo PRIVATE /include)
+target_link_libraries(PhysicsDemo PUBLIC Engine)

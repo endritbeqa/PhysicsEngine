@@ -14,7 +14,7 @@
 
 class Matrix3 {
 public:
-    std::array<std::array<double, 3>, 3> m;
+    std::array<std::array<float, 3>, 3> m;
 
     Matrix3() {
         m[0][0] = 1.0f;
@@ -28,9 +28,9 @@ public:
         m[2][2] = 1.0f;
     }
 
-    Matrix3(double m00, double m01, double m02,
-            double m10, double m11, double m12,
-            double m20, double m21, double m22) {
+    Matrix3(float m00, float m01, float m02,
+            float m10, float m11, float m12,
+            float m20, float m21, float m22) {
         m[0][0] = m00;
         m[0][1] = m01;
         m[0][2] = m02;
@@ -55,11 +55,11 @@ public:
     }
 
 
-    double &operator()(int row, int col) {
+    float &operator()(int row, int col) {
         return m[row][col];
     }
 
-    const double &operator()(int row, int col) const {
+    const float &operator()(int row, int col) const {
         return m[row][col];
     }
 
@@ -84,7 +84,7 @@ public:
         return result;
     }
 
-    Matrix3 operator+(double d) {
+    Matrix3 operator+(float d) {
         Matrix3 result = *this;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -104,7 +104,7 @@ public:
     }
 
     // Determinant of the matrix
-    double determinant() const {
+    float determinant() const {
         return m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) -
                m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]) +
                m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]);
@@ -112,14 +112,14 @@ public:
 
     // Inverse of the matrix (only if determinant is non-zero)
     Matrix3 inverse() const {
-        double det = determinant();
+        float det = determinant();
         if (det == 0.0f) {
             // Matrix is singular (cannot invert)
             std::cerr << "Matrix is singular, cannot invert!" << std::endl;
             return Matrix3();  // Return identity matrix as a fallback
         }
 
-        double invDet = 1.0f / det;
+        float invDet = 1.0f / det;
 
         Matrix3 result(
                 (m[1][1] * m[2][2] - m[1][2] * m[2][1]) * invDet,
@@ -145,9 +145,9 @@ public:
     }
 
     // Static method to create rotation matrix around Z-axis
-    static Matrix3 rotationZ(double angle) {
-        double cosA = cos(angle);
-        double sinA = sin(angle);
+    static Matrix3 rotationZ(float angle) {
+        float cosA = cos(angle);
+        float sinA = sin(angle);
         return Matrix3(
                 cosA, -sinA, 0.0f,
                 sinA, cosA, 0.0f,
@@ -156,9 +156,9 @@ public:
     }
 
     // Static method to create rotation matrix around X-axis
-    static Matrix3 rotationX(double angle) {
-        double cosA = cos(angle);
-        double sinA = sin(angle);
+    static Matrix3 rotationX(float angle) {
+        float cosA = cos(angle);
+        float sinA = sin(angle);
         return Matrix3(
                 1.0f, 0.0f, 0.0f,
                 0.0f, cosA, -sinA,
@@ -167,9 +167,9 @@ public:
     }
 
     // Static method to create rotation matrix around Y-axis
-    static Matrix3 rotationY(double angle) {
-        double cosA = cos(angle);
-        double sinA = sin(angle);
+    static Matrix3 rotationY(float angle) {
+        float cosA = cos(angle);
+        float sinA = sin(angle);
         return Matrix3(
                 cosA, 0.0f, sinA,
                 0.0f, 1.0f, 0.0f,
@@ -179,7 +179,7 @@ public:
 };
 
 
-//TODO fix this so it doesn't cause double declaration
+//TODO fix this so it doesn't cause float declaration
 /*
 Matrix3 ToCrossMatrix(Vector3& v){
     return Matrix3(0,-v.z,v.y,v.z,0,-v.x,-v.y,v.x,0);

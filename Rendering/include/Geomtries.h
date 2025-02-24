@@ -1,62 +1,61 @@
 #ifndef GEOMTRIES_H
 #define GEOMTRIES_H
 
-#include <array>
-#include <iostream>
-#include <math.h>
 #include <vector>
-#include <glm/vec3.hpp>
-#include <Rendering/libs/glad/glad.h>
+#include <glm/mat4x4.hpp>
+
+#include "Shader.h"
+#include "math/include/Vector3.h"
+#include "math/include/Vector2.h"
+#include "Rendering/include/texture.h"
 
 
 class Vertex {
-    Vertex(float x,float y,float z,float r,float g,float b,float s,float t,float Nx,float Ny,float Nz);
-    Vertex(glm::vec3 p);
+public:
+    Vertex(Vector3 &pos, Vector3 &nor, Vector2 &tex);
 
-    std::array<float, 3> position;
-    std::array<float, 3> color;
-    std::array<float, 2> textureCoord;
-    std::array<float, 3> normal;
+    Vertex(const Vector3 &pos, const Vector3 & nor,const Vector2 & tex):position(pos), normal(nor), textureCoord(tex){}
+
+    Vector3 position;
+    Vector3 normal;
+    Vector2 textureCoord;
 };
 
 
-class Geometry {
-
+class Mesh {
 public:
-    std::vector<float> vertices;
+    std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
+    std::vector<Texture> textures;
+    glm::mat4 model = glm::mat4(1.0f);
+    ShaderProgram *shaderProgram;//TODO convert this to smart pointer
     unsigned int VAO, VBO, EBO;
-    unsigned int texture;
 
-    Geometry();
-    virtual ~Geometry();
-    virtual void bindGeometry();
-    virtual void draw();
-};
-
-
-class Plane{
-public:
-    std::vector<float> vertices;
-    std::vector<unsigned int> indices;
-    unsigned int VAO, VBO, EBO;
-    unsigned int texture;
-    Plane(float width, float height);
-    void bindGeometry();
+    ~Mesh(){};
+    Mesh();
+    Mesh(std::vector<Vertex> &vertices, std::vector<unsigned int> &indices, std::vector<Texture> &textures);
     void draw();
+    void setupMesh();
 
 };
 
 
 
-class Sphere : public Geometry {
+class Plane :public  Mesh{
+public:
+    Plane(float width, float height);
+};
+
+
+
+class Sphere : public Mesh {
 public:
     Sphere(float radius, int sectorCount, int stackCount);
 
 };
 
 
-class CubeMesh : public Geometry {
+class CubeMesh : public Mesh {
 public:
     CubeMesh(float size);
 };
