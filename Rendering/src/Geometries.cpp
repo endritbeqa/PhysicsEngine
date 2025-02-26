@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Rendering/include/Geomtries.h"
+#include "Rendering/include/Geometries.h"
 #include <glm/gtc/type_ptr.hpp>
 #include "Rendering/libs/glad/glad.h"
 

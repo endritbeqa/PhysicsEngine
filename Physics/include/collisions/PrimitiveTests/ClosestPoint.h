@@ -5,7 +5,7 @@
 #ifndef PHYSICSENGINE_CLOSESTPOINT_H
 #define PHYSICSENGINE_CLOSESTPOINT_H
 
-#include "math/include/Point3.h"
+#include "math/include/Vector3.h"
 #include "math/include/Plane3.h"
 #include "math/include/Vector3.h"
 #include "math/include/Matrix3.h"
@@ -15,26 +15,26 @@
 #include <algorithm>
 
 
-Point3 ClosestPtPointToPlane(Point3 &q, Plane3 &p) {
+Vector3 ClosestPtPointToPlane(Vector3 &q, Plane3 &p) {
     float t = dot(p.normal, Vector3(q)) - p.distance;
-    return q - Point3(p.normal * t);
+    return q - Vector3(p.normal * t);
 }
 
-float DistancePointToPlane(Point3 &q, Plane3 &p) {
+float DistancePointToPlane(Vector3 &q, Plane3 &p) {
     return dot(p.normal, Vector3(q)) - p.distance;
 }
 
 
-Point3 ClosestPtPointToSegment(Point3 &a, Point3 &b, Point3 &c) {
+Vector3 ClosestPtPointToSegment(Vector3 &a, Vector3 &b, Vector3 &c) {
     Vector3 ab = Vector3(b - a);
 
     float t = dot(ab, Vector3(c)) / ab.normSquared();
     if (t < 0.0f) t = 0.0f;
     if (t > 1.0f) t = 1.0f;
-    return a + Point3(ab * t);
+    return a + Vector3(ab * t);
 }
 
-float DistancePointToSegment(Point3 &a, Point3 &b, Point3 &c) {
+float DistancePointToSegment(Vector3 &a, Vector3 &b, Vector3 &c) {
 
     Vector3 ab = b - a, ac = c - a, bc = c - b;
 
@@ -46,17 +46,17 @@ float DistancePointToSegment(Point3 &a, Point3 &b, Point3 &c) {
     return sqrt(dot(ac, ac) - CProjAB * CProjAB);
 }
 
-Point3 ClosestPtPointToAABB(Point3 p, AABB aabb) {
+Vector3 ClosestPtPointToAABB(Vector3 p, AABB aabb) {
     double x = std::clamp(p.x, aabb.center.x - aabb.halfSizeX, aabb.center.x + aabb.halfSizeX);
     double y = std::clamp(p.y, aabb.center.y - aabb.halfSizeY, aabb.center.y + aabb.halfSizeY);
     double z = std::clamp(p.z, aabb.center.z - aabb.halfSizeZ, aabb.center.z + aabb.halfSizeZ);
 
-    return Point3(x, y, z);
+    return Vector3(x, y, z);
 }
 
 
 //TODO test this
-float DistPointAABB(Point3 p, AABB b) {
+float DistPointAABB(Vector3 p, AABB b) {
     float distance = 0.0f;
 
     float distX = std::abs(b.center.x - p.x) - b.halfSizeX;
@@ -67,10 +67,10 @@ float DistPointAABB(Point3 p, AABB b) {
 }
 
 
-Point3 ClosestPtPointToOBB(Point3 p, OBB obb) {
+Vector3 ClosestPtPointToOBB(Vector3 p, OBB obb) {
 
     Vector3 p_ObbCenter = Vector3(p - obb.center);
-    Point3 closestPoint = obb.center;
+    Vector3 closestPoint = obb.center;
     double x = dot(p_ObbCenter, Vector3(obb.localCoord.m[0]));
     double y = dot(p_ObbCenter, Vector3(obb.localCoord.m[1]));
     double z = dot(p_ObbCenter, Vector3(obb.localCoord.m[2]));
@@ -79,14 +79,14 @@ Point3 ClosestPtPointToOBB(Point3 p, OBB obb) {
     y = std::clamp(y, obb.center[1] - obb.halfSizes[1], obb.center[1] + obb.halfSizes[1]);
     z = std::clamp(z, obb.center[2] - obb.halfSizes[2], obb.center[2] + obb.halfSizes[2]);
 
-    closestPoint = closestPoint + Point3(obb.localCoord.m[0]) * x;
-    closestPoint = closestPoint + Point3(obb.localCoord.m[1]) * y;
-    closestPoint = closestPoint + Point3(obb.localCoord.m[2]) * z;
+    closestPoint = closestPoint + Vector3(obb.localCoord.m[0]) * x;
+    closestPoint = closestPoint + Vector3(obb.localCoord.m[1]) * y;
+    closestPoint = closestPoint + Vector3(obb.localCoord.m[2]) * z;
 
     return closestPoint;
 }
 
-float DistPointToOBB(Point3 p, OBB obb) {
+float DistPointToOBB(Vector3 p, OBB obb) {
 
     Vector3 p_ObbCenter = Vector3(p - obb.center);
     float distance = 0.0f;
@@ -104,7 +104,7 @@ float DistPointToOBB(Point3 p, OBB obb) {
 }
 
 
-Point3 ClosestPtPointTriangle(Point3 &p, Point3 &a, Point3 &b, Point3 &c) {
+Vector3 ClosestPtPointTriangle(Vector3 &p, Vector3 &a, Vector3 &b, Vector3 &c) {
 
     Vector3 ab = Vector3(b - a);
     Vector3 ac = Vector3(c - a);

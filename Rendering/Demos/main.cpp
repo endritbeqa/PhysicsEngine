@@ -1,38 +1,21 @@
-#include <array>
-#include <cmath>
 #include <vector>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include "Rendering/libs/glad/glad.h"
 
-#include "Shader.cpp"
-#include "include/Camera.h"
-#include "Rendering/include/Geomtries.h"
+#include "Rendering/libs/glad/glad.h"
+#include "Rendering/libs/glfw-3.4/include/GLFW/glfw3.h"
+
+#include "Rendering/include/Shader.h"
+#include "Rendering/include/Camera.h"
+#include "Rendering/include/Geometries.h"
 #include "Rendering/include/Wireframe.h"
 #include "Rendering/include/window.h"
-#include "Rendering/libs/glfw-3.4/include/GLFW/glfw3.h"
 
 const unsigned int SCREEN_WIDTH = 1000;
 const unsigned int SCREEN_HEIGHT = 1000;
-const unsigned int WIRE = 1;
+const bool isWIRE = false;
 
-
-void processInput(GLFWwindow *window, Camera* camera) {
-    float cameraSpeed = 0.01f;
-
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera->position += cameraSpeed * camera->front;
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera->position -= cameraSpeed * camera->front;
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera->position -= glm::normalize(glm::cross(camera->front, camera->up)) * cameraSpeed;
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera->position += glm::normalize(glm::cross(camera->front, camera->up)) * cameraSpeed;
-
-}
 
 int main() {
     GLFWwindow *window = getGLFWwindow(SCREEN_WIDTH, SCREEN_HEIGHT, true);
@@ -43,13 +26,13 @@ int main() {
     std::vector<Mesh> meshes;
     std::vector<Wireframe> wireframes;
 
-    Shader meshVertexShader = Shader("/home/endrit/CLionProjects/PhysicsEngine/Rendering/shaders/sources/vertex.txt",GL_VERTEX_SHADER);
-    Shader meshFragmentShader = Shader("/home/endrit/CLionProjects/PhysicsEngine/Rendering/shaders/sources/fragment.txt", GL_FRAGMENT_SHADER);
+    Shader meshVertexShader = Shader("/home/endrit/CLionProjects/PhysicsEngine/Rendering/shaders/texture/vertex.txt",GL_VERTEX_SHADER);
+    Shader meshFragmentShader = Shader("/home/endrit/CLionProjects/PhysicsEngine/Rendering/shaders/texture/fragment.txt", GL_FRAGMENT_SHADER);
     ShaderProgram meshShaderProgram = ShaderProgram(std::vector<unsigned int>{meshVertexShader.ID, meshFragmentShader.ID});
     meshShaderProgram.createShaderProgram();
 
-    Shader wireframeVertexShader = Shader("/home/endrit/CLionProjects/PhysicsEngine/Rendering/shaders/sources/wireframe/vertex.txt",GL_VERTEX_SHADER);
-    Shader wireframeFragmentShader = Shader("/home/endrit/CLionProjects/PhysicsEngine/Rendering/shaders/sources/wireframe/fragment.txt", GL_FRAGMENT_SHADER);
+    Shader wireframeVertexShader = Shader("/home/endrit/CLionProjects/PhysicsEngine/Rendering/shaders/wireframe/vertex.txt",GL_VERTEX_SHADER);
+    Shader wireframeFragmentShader = Shader("/home/endrit/CLionProjects/PhysicsEngine/Rendering/shaders/wireframe/fragment.txt", GL_FRAGMENT_SHADER);
     ShaderProgram wireframeShaderProgram = ShaderProgram(std::vector<unsigned int>{wireframeVertexShader.ID, wireframeFragmentShader.ID});
     wireframeShaderProgram.createShaderProgram();
 
@@ -61,7 +44,6 @@ int main() {
     cubeWire.shaderProgram = &wireframeShaderProgram;
     sphereWire.shaderProgram = &wireframeShaderProgram;
     wireframes.push_back(sphereWire);
-    //wireframes.push_back(cubeWire);
 
 
     CubeMesh cube = CubeMesh(0.5);
@@ -101,7 +83,7 @@ int main() {
         glEnable(GL_DEPTH_TEST);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        if (WIRE) {
+        if (isWIRE) {
             for (Wireframe &wire: wireframes) {
                 glUseProgram(wire.shaderProgram->ID);
                 wire.shaderProgram->setMat4("model", wire.model);

@@ -43,6 +43,12 @@ public:
     OBBWireframe(std::vector<Vector3> &halfSizes, std::vector<Vector3> &orientation);
 };
 
+class AABBWireframe : public Wireframe {
+public:
+    AABBWireframe(Vector3 &center, Vector3 &halfSizes);
+};
+
+
 
 
 

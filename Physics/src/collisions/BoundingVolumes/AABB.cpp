@@ -1,17 +1,20 @@
 #include "Physics/include/collisions/BoundingVolumes/AABB.h"
+#include "math/include/utils.h"
 #include <limits>
 
 
-AABB::AABB():center(Point3()), halfSizeX(0.5), halfSizeY(0.5), halfSizeZ(0.5){};
-AABB::AABB(Point3 center, double halfSizeX, double halfSizeY, double halfSizeZ) : center(center), halfSizeX(halfSizeX), halfSizeY(halfSizeY), halfSizeZ(halfSizeZ) {}
+AABB::AABB(): center(Vector3()), halfSizes(Vector3()) {
+};
+
+AABB::AABB(Vector3 center, Vector3 halfSizes) : center(center), halfSizes(halfSizes){}
 
 bool AABB::intersects(const AABB &other) {
-    return !(center.x + halfSizeX < other.center.x - other.halfSizeX ||
-             center.x - halfSizeX > other.center.x + other.halfSizeX ||
-             center.y + halfSizeY < other.center.y - other.halfSizeY ||
-             center.y - halfSizeY > other.center.y + other.halfSizeY ||
-             center.z + halfSizeZ < other.center.z - other.halfSizeZ ||
-             center.z - halfSizeZ > other.center.z + other.halfSizeZ);
+    return !(center.x + halfSizes[0] < other.center.x - other.halfSizes[0] ||
+             center.x - halfSizes[0] > other.center.x + other.halfSizes[0] ||
+             center.y + halfSizes[1] < other.center.y - other.halfSizes[1] ||
+             center.y - halfSizes[1] > other.center.y + other.halfSizes[1] ||
+             center.z + halfSizes[2] < other.center.z - other.halfSizes[2] ||
+             center.z - halfSizes[3] > other.center.z + other.halfSizes[2]);
 }
 
 //TODO improve performance on this one and test
@@ -20,36 +23,56 @@ void AABB::updateAABB(Matrix3 rotation, Vector3 translation) {
     center.y = center.y + translation.y;
     center.z = center.z + translation.z;
 
-    Vector3 halfSizes = Vector3(halfSizeX, halfSizeY, halfSizeZ);
-    Vector3 newHalfSizes = rotation*halfSizes;
-    halfSizeX = newHalfSizes.x;
-    halfSizeY = newHalfSizes.y;
-    halfSizeZ = newHalfSizes.z;
+    halfSizes = rotation * halfSizes;
 
 }
 
-template<std::size_t n>
-std::array<Point3*, 2> AABB::getExtremePoints(Vector3& direction, std::array<Point3, n>& points) {
-    double minValue= std::numeric_limits<double>::max();
-    double maxValue= std::numeric_limits<double>::min();
-    Point3* min = &points[0];
-    Point3* max = &points[0];
 
-    for(Point3& p: points){
-        double proj = direction.dot(Vector3(p));
-        if(proj < minValue){
-            minValue = proj;
-            min = &p;
-        }
-        if(proj > maxValue){
-            maxValue = proj;
-            max = &p;
+void AABB::buildAABB(Mesh &mesh) {
+    //extreme values in axis X,Y,Z
+    std::array<Vector3, 3> axes = {Vector3(1, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 1)};
+    std::array<float, 6> extremeValues = {
+        std::numeric_limits<float>::min(), std::numeric_limits<float>::max(),
+        std::numeric_limits<float>::min(), std::numeric_limits<float>::max(),
+        std::numeric_limits<float>::min(), std::numeric_limits<float>::max()
+    };
+
+    for (Vertex &v: mesh.vertices) {
+        for (unsigned int i = 0; i < 3; i++) {
+            float proj = dot(axes[i], v.position);
+            if (proj < extremeValues[2*i]) {
+                 extremeValues[2*i] = proj;
+            }
+            if (proj > extremeValues[2*i+1]) {
+                extremeValues[2*i+1] = proj;
+            }
         }
     }
 
-    return std::array<Point3*, 2>{min, max};
+    halfSizes = Vector3((extremeValues[1]-extremeValues[0])/2.0f,
+                        (extremeValues[3]-extremeValues[2])/2.0f,
+                        (extremeValues[5]-extremeValues[4])/2.0f);
+    center = Vector3(extremeValues[0]+halfSizes[0], extremeValues[2]+halfSizes[1], extremeValues[4]+halfSizes[2]);
 }
 
 
+std::array<Vector3, 2> AABB::getExtremePoints(Vector3 &direction, Mesh &mesh) {
+    double minValue = std::numeric_limits<double>::max();
+    double maxValue = std::numeric_limits<double>::min();
+    Vector3 min = mesh.vertices[0].position;
+    Vector3 max = mesh.vertices[0].position;
 
+    for (Vertex &v: mesh.vertices) {
+        double proj = dot(direction, v.position);
+        if (proj < minValue) {
+            minValue = proj;
+            min = v.position;
+        }
+        if (proj > maxValue) {
+            maxValue = proj;
+            max = v.position;
+        }
+    }
 
+    return std::array<Vector3, 2>{min, max};
+}

@@ -5,7 +5,6 @@
 #include <iostream>
 #include <stdexcept>
 #include <array>
-#include "Point3.h"
 
 
 class Vector3 {
@@ -17,10 +16,6 @@ public:
     Vector3(float x, float y, float z) : x(x), y(y), z(z) {};
 
     Vector3(std::array<float,3> &a) : x(a[0]), y(a[1]), z(a[2]) {};
-
-    Vector3(Point3 &p) : x(p.x), y(p.y), z(p.z) {};
-
-    Vector3(Point3 &&p) : x(p.x), y(p.y), z(p.z) {};
 
     Vector3(Vector3 &v) : x(v.x), y(v.y), z(v.z) {};
 

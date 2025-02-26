@@ -1,7 +1,3 @@
-//
-// Created by endrit on 20.12.24.
-//
-
 #ifndef PHYSICSENGINE_BOUNDINGVOLUME_H
 #define PHYSICSENGINE_BOUNDINGVOLUME_H
 

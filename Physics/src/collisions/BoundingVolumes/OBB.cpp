@@ -1,6 +1,6 @@
 #include "Physics/include/collisions/BoundingVolumes/OBB.h"
 
-OBB::OBB(Point3 center, Matrix3 &localCoord, Vector3 halfSizes) : center(center), localCoord(localCoord),
+OBB::OBB(Vector3 center, Matrix3 &localCoord, Vector3 halfSizes) : center(center), localCoord(localCoord),
                                                                   halfSizes(halfSizes) {}
 
 bool OBB::intersects(OBB &other) {
@@ -76,8 +76,6 @@ bool OBB::intersects(OBB &other) {
 
 }
 
-
-template<size_t n>
-void OBB::calculateTightOBB(std::array<Point3 *, n> &points) {
+void OBB::calculateTightOBB(Mesh &mesh) {
 
 }

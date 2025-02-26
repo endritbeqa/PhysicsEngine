@@ -1,7 +1,7 @@
 #ifndef PHYSICSENGINE_UTILS_H
 #define PHYSICSENGINE_UTILS_H
 
-#include "Point3.h"
+#include "Vector3.h"
 #include "Vector3.h"
 #include "Matrix3.h"
 #include <array>
@@ -35,9 +35,9 @@ Vector3 cross(T a, T b) {
 
 
 template<size_t n>
-Point3 calculateMean(std::array<Point3, n> points) {
-    Point3 mean = Point3();
-    for (Point3 &p: points) {
+Vector3 calculateMean(std::array<Vector3, n> points) {
+    Vector3 mean = Vector3();
+    for (Vector3 &p: points) {
         mean.x += p.x;
         mean.y += p.y;
         mean.z += p.z;
@@ -48,8 +48,8 @@ Point3 calculateMean(std::array<Point3, n> points) {
 
 
 template<size_t n>
-Matrix3 calculateCovariance(std::array<Point3, n> &points) {
-    Point3 mean = calculateMean(points);
+Matrix3 calculateCovariance(std::array<Vector3, n> &points) {
+    Vector3 mean = calculateMean(points);
     Matrix3 covariance = Matrix3(); //initial constructor is identity matrix
     covariance.m[0][0] = 0;
     covariance.m[1][1] = 0;
@@ -58,7 +58,7 @@ Matrix3 calculateCovariance(std::array<Point3, n> &points) {
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            for (Point3 &p: points) {
+            for (Vector3 &p: points) {
                 covariance.m[i][j] += (p[i] - mean[i]) * (p[j] - mean[j]);
             }
         }

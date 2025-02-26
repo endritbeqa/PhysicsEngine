@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Rendering/libs/glad/glad.h"
 #include "Rendering/include/window.h"
+#include "Rendering/include/Camera.h"
+
+class Camera;
 
 void APIENTRY glDebugCallback(GLenum source, GLenum type, GLuint id,
                               GLenum severity, GLsizei length,
@@ -76,3 +79,23 @@ GLFWwindow* getGLFWwindow(int SCREEN_WIDTH, int SCREEN_HEIGHT, bool debugContext
 
     return window;
 }
+
+
+
+void processInput(GLFWwindow *window, Camera* camera) {
+    float cameraSpeed = 0.01f;
+
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera->position += cameraSpeed * camera->front;
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera->position -= cameraSpeed * camera->front;
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera->position -= glm::normalize(glm::cross(camera->front, camera->up)) * cameraSpeed;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera->position += glm::normalize(glm::cross(camera->front, camera->up)) * cameraSpeed;
+
+}
+
+

@@ -4,9 +4,9 @@
 
 #include <random>
 
-Sphere::Sphere() : center(Point3()), radius(0.5) {}
+Sphere::Sphere() : center(Vector3()), radius(0.5) {}
 
-Sphere::Sphere(Point3 center, double radius) : center(center), radius(radius) {}
+Sphere::Sphere(Vector3 center, double radius) : center(center), radius(radius) {}
 
 bool Sphere::intersects(Sphere &other) {
     Vector3 d = Vector3(center.x - other.center.x, center.y - other.center.y, center.z - other.center.z);
@@ -15,7 +15,7 @@ bool Sphere::intersects(Sphere &other) {
     return dist2 <= sum_radius2;
 }
 
-void Sphere::updateSphere(Point3 *p) {
+void Sphere::updateSphere(Vector3 *p) {
 
     Vector3 centerToP = Vector3(center - *p);
     double distToCenter = centerToP.norm();
@@ -30,7 +30,7 @@ void Sphere::updateSphere(Point3 *p) {
 }
 
 template<std::size_t n>
-void Sphere::RitterIterative(std::array<Point3, n> &points) {
+void Sphere::RitterIterative(std::array<Vector3, n> &points) {
     const int NUM_ITER = 8;
     RitterSphere(points);
     std::random_device rd;  // Seed for randomness
@@ -53,21 +53,21 @@ void Sphere::RitterIterative(std::array<Point3, n> &points) {
 }
 
 template<std::size_t n>
-void Sphere::RitterSphere(std::array<Point3, n> &points) {
+void Sphere::RitterSphere(std::array<Vector3, n> &points) {
 
     sphereFromExtremePoints(points);
 
-    for (Point3 *p: points) {
+    for (Vector3 *p: points) {
         updateSphere(p);
     }
 }
 
 template<std::size_t n>
-void Sphere::sphereFromExtremePoints(std::array<Point3, n> &points) {
-    Point3 *min;
-    Point3 *max;
+void Sphere::sphereFromExtremePoints(std::array<Vector3, n> &points) {
+    Vector3 *min;
+    Vector3 *max;
 
-    std::array<Point3 *, 2> extremePoints = getMostSeperatedPoints(points);
+    std::array<Vector3 *, 2> extremePoints = getMostSeperatedPoints(points);
     min = extremePoints[0];
     max = extremePoints[1];
 
@@ -76,10 +76,10 @@ void Sphere::sphereFromExtremePoints(std::array<Point3, n> &points) {
 }
 
 template<std::size_t n>
-std::array<Point3 *, 2> Sphere::getMostSeperatedPoints(std::array<Point3, n> &points) {
-    std::array<Point3 *, 6> extremePoints{&points[0], &points[0], &points[0], &points[0], &points[0], &points[0]};
+std::array<Vector3 *, 2> Sphere::getMostSeperatedPoints(std::array<Vector3, n> &points) {
+    std::array<Vector3 *, 6> extremePoints{&points[0], &points[0], &points[0], &points[0], &points[0], &points[0]};
 
-    for (Point3 &p: points) {
+    for (Vector3 &p: points) {
         if (p.x < extremePoints[0]->x) extremePoints[0] = &p;
         if (p.x > extremePoints[1]->x) extremePoints[1] = &p;
         if (p.y < extremePoints[2]->y) extremePoints[2] = &p;
@@ -88,15 +88,15 @@ std::array<Point3 *, 2> Sphere::getMostSeperatedPoints(std::array<Point3, n> &po
         if (p.z > extremePoints[5]->z) extremePoints[5] = &p;
     }
 
-    Point3 dist2X = *extremePoints[0] - (*extremePoints[1]);
+    Vector3 dist2X = *extremePoints[0] - (*extremePoints[1]);
     double distX = Vector3(&dist2X).normSquared();
-    Point3 dist2Y = *extremePoints[2] - (*extremePoints[3]);
+    Vector3 dist2Y = *extremePoints[2] - (*extremePoints[3]);
     double distY = Vector3(&dist2Y).normSquared();
-    Point3 dist2Z = *extremePoints[4] - (*extremePoints[5]);
+    Vector3 dist2Z = *extremePoints[4] - (*extremePoints[5]);
     double distZ = Vector3(&dist2Z).normSquared();
 
-    Point3 *min = extremePoints[0];
-    Point3 *max = extremePoints[1];
+    Vector3 *min = extremePoints[0];
+    Vector3 *max = extremePoints[1];
 
     if (distY > distX && distY > distZ) {
         min = extremePoints[2];
@@ -108,5 +108,5 @@ std::array<Point3 *, 2> Sphere::getMostSeperatedPoints(std::array<Point3, n> &po
         max = extremePoints[5];
     }
 
-    return std::array<Point3 *, 2>{min, max};
+    return std::array<Vector3 *, 2>{min, max};
 }

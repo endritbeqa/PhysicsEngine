@@ -1,26 +1,24 @@
 #ifndef PHYSICSENGINE_AABB_H
 #define PHYSICSENGINE_AABB_H
 
-#include "math/include/Point3.h"
 #include "math/include/Vector3.h"
 #include "math/include/Matrix3.h"
-#include <array>
+#include "Rendering/include/Geometries.h"
 
 
 class AABB {
 public:
-    Point3 center;
-    double halfSizeX;
-    double halfSizeY;
-    double halfSizeZ;
+    Vector3 center;
+    Vector3 halfSizes;
 
     AABB();
-    AABB(Point3 center, double halfSizeX, double halfSizeY, double halfSizeZ);
+    AABB(Vector3 center, Vector3 halfSizes);
 
     bool intersects(const AABB &other);
 
-    template<std::size_t n>
-    std::array<Point3*,2> getExtremePoints(Vector3& direction, std::array<Point3, n>& points);
+    void buildAABB(Mesh &mesh);
+
+    std::array<Vector3,2> getExtremePoints(Vector3 &direction, Mesh &mesh);
 
     void updateAABB(Matrix3 rotation, Vector3 translation);
 

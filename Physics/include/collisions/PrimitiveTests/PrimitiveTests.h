@@ -50,25 +50,25 @@ int TestSphereAABB(Sphere &s, AABB &b) {
 
 
 int TestSphereOBB(Sphere &s, OBB &obb) {
-    Point3 p = ClosestPtPointToOBB(s.center, obb);
+    Vector3 p = ClosestPtPointToOBB(s.center, obb);
     Vector3 v = p - s.center;
     return dot(v, v) <= s.radius * s.radius;
 }
 
 
-int TestSphereTriangle(Sphere &s, Point3 &a, Point3 &b, Point3 &c) {
-    Point3 p = ClosestPtPointTriangle(s.center, a, b, c);
+int TestSphereTriangle(Sphere &s, Vector3 &a, Vector3 &b, Vector3 &c) {
+    Vector3 p = ClosestPtPointTriangle(s.center, a, b, c);
     Vector3 v = p - s.center;
     return dot(v, v) <= s.radius * s.radius;
 }
 
 
 //TODO implement this
-int TestTriangleAABB(Point3 &v0, Point3 &v1, Point3 &v2, AABB &aabb) {
+int TestTriangleAABB(Vector3 &v0, Vector3 &v1, Vector3 &v2, AABB &aabb) {
 }
 
 
-int IntersectSegmentPlane(Point3 &a, Point3 &b, Plane3 &p, Point3 &q) {
+int IntersectSegmentPlane(Vector3 &a, Vector3 &b, Plane3 &p, Vector3 &q) {
     Vector3 ab = b - a;
     float t = (p.distance - dot(p.normal, a)) / dot(p.normal, ab);
     if (t >= 0.0f && t <= 1.0f) {
@@ -78,14 +78,14 @@ int IntersectSegmentPlane(Point3 &a, Point3 &b, Plane3 &p, Point3 &q) {
     return 0;
 }
 
-int IntersectSegmentPlane(Point3 a, Point3 b, Point3 d, Point3 e, Point3 f, Point3 &q) {
+int IntersectSegmentPlane(Vector3 a, Vector3 b, Vector3 d, Vector3 e, Vector3 f, Vector3 &q) {
     Plane3 p;
     p.normal = cross(e - d, f - d);
     p.distance = dot(p.normal, d);
     return IntersectSegmentPlane(a, b, p, q);
 }
 
-int IntersectRaySphere(Point3 p, Vector3 d, Sphere s, Point3 &q) {
+int IntersectRaySphere(Vector3 p, Vector3 d, Sphere s, Vector3 &q) {
     Vector3 m = p - s.center;
     float b = dot(m, d);
     float c = dot(m, m) - s.radius * s.radius;
@@ -99,7 +99,7 @@ int IntersectRaySphere(Point3 p, Vector3 d, Sphere s, Point3 &q) {
     return 1;
 }
 
-int TestRaySphere(Point3 p, Vector3 d, Sphere s) {
+int TestRaySphere(Vector3 p, Vector3 d, Sphere s) {
     Vector3 m = p - s.center;
     float c = dot(m, m) - s.radius * s.radius;
     if (c <= 0.0f) return 1;

@@ -190,7 +190,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Rendering/include/Geomtries.h",
+			"path" : "Rendering/include/Geometries.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -223,7 +223,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
-			"path" : "Rendering/src/Geomtries.cpp",
+			"path" : "Rendering/src/Geometries.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

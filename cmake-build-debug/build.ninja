@@ -468,8 +468,8 @@ build Rendering/CMakeFiles/DEPENDENCIES.dir/src/texture.cpp.o: CXX_COMPILER__DEP
   OBJECT_DIR = Rendering/CMakeFiles/DEPENDENCIES.dir
   OBJECT_FILE_DIR = Rendering/CMakeFiles/DEPENDENCIES.dir/src
 
-build Rendering/CMakeFiles/DEPENDENCIES.dir/src/Geomtries.cpp.o: CXX_COMPILER__DEPENDENCIES_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/Rendering/src/Geomtries.cpp || cmake_object_order_depends_target_DEPENDENCIES
-  DEP_FILE = Rendering/CMakeFiles/DEPENDENCIES.dir/src/Geomtries.cpp.o.d
+build Rendering/CMakeFiles/DEPENDENCIES.dir/src/Geometries.cpp.o: CXX_COMPILER__DEPENDENCIES_unscanned_Debug /home/endrit/CLionProjects/PhysicsEngine/Rendering/src/Geometries.cpp || cmake_object_order_depends_target_DEPENDENCIES
+  DEP_FILE = Rendering/CMakeFiles/DEPENDENCIES.dir/src/Geometries.cpp.o.d
   FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
   INCLUDES = -I/home/endrit/CLionProjects/PhysicsEngine -I/home/endrit/CLionProjects/PhysicsEngine/Rendering -I/home/endrit/CLionProjects/PhysicsEngine/Rendering/libs -I/home/endrit/CLionProjects/PhysicsEngine/Rendering/libs/assimp
   OBJECT_DIR = Rendering/CMakeFiles/DEPENDENCIES.dir
@@ -497,7 +497,7 @@ build Rendering/CMakeFiles/DEPENDENCIES.dir/src/Wireframe.cpp.o: CXX_COMPILER__D
 #############################################
 # Link the static library Rendering/libDEPENDENCIESd.a
 
-build Rendering/libDEPENDENCIESd.a: CXX_STATIC_LIBRARY_LINKER__DEPENDENCIES_Debug Rendering/CMakeFiles/DEPENDENCIES.dir/libs/glad/glad.c.o Rendering/CMakeFiles/DEPENDENCIES.dir/libs/stbi/stb_image.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/window.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/texture.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/Geomtries.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/Shader.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/Wireframe.cpp.o
+build Rendering/libDEPENDENCIESd.a: CXX_STATIC_LIBRARY_LINKER__DEPENDENCIES_Debug Rendering/CMakeFiles/DEPENDENCIES.dir/libs/glad/glad.c.o Rendering/CMakeFiles/DEPENDENCIES.dir/libs/stbi/stb_image.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/window.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/texture.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/Geometries.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/Shader.cpp.o Rendering/CMakeFiles/DEPENDENCIES.dir/src/Wireframe.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = Rendering/CMakeFiles/DEPENDENCIES.dir
   POST_BUILD = :

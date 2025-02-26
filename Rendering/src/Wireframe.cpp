@@ -105,3 +105,36 @@ CubeWireframe::CubeWireframe(float size) {
         5, 1, 0
     };
 }
+
+
+
+AABBWireframe::AABBWireframe(Vector3 &center, Vector3 &halfSizes) {
+
+
+    vertices = {
+        Vector3(center[0]-halfSizes[0], center[1]-halfSizes[1], center[2]+halfSizes[2]),
+        Vector3(center[0]+halfSizes[0], center[1]-halfSizes[1], center[2]+halfSizes[2]),
+        Vector3(center[0]+halfSizes[0], center[1]+halfSizes[1], center[2]+halfSizes[2]),
+        Vector3(center[0]-halfSizes[0], center[1]+halfSizes[1], center[2]+halfSizes[2]),
+        Vector3(center[0]-halfSizes[0], center[1]-halfSizes[1], center[2]-halfSizes[2]),
+        Vector3(center[0]+halfSizes[0], center[1]-halfSizes[1], center[2]-halfSizes[2]),
+        Vector3(center[0]+halfSizes[0], center[1]+halfSizes[1], center[2]-halfSizes[2]),
+        Vector3(center[0]-halfSizes[0], center[1]+halfSizes[1], center[2]-halfSizes[2])
+    };
+
+    indices = {
+        0, 1, 2,
+        2, 3, 0,
+        4, 5, 6,
+        6, 7, 4,
+        0, 3, 7,
+        7, 4, 0,
+        1, 5, 6,
+        6, 2, 1,
+        3, 2, 6,
+        6, 7, 3,
+        0, 4, 5,
+        5, 1, 0
+    };
+}
+

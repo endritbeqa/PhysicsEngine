@@ -12,7 +12,7 @@ public:
     Octree(AABB& bBox, size_t capacity): boundary(bBox), capacity(capacity){}
 
     AABB boundary;
-    std::vector<Point3> points;
+    std::vector<Vector3> points;
     std::array<std::unique_ptr<Octree>, 8> children;
     bool isDivided;
     size_t capacity;
@@ -25,7 +25,7 @@ public:
             int x = (i%2) ? quarterSize : -quarterSize;
             int y = (i/2)%2 ? quarterSize : -quarterSize;
             int z = (i/4)%2 ? quarterSize : -quarterSize;
-            Point3 center(boundary.center.x + x,
+            Vector3 center(boundary.center.x + x,
                           boundary.center.y + y,
                           boundary.center.z + z);
             AABB bBox(center, quarterSize);
@@ -34,7 +34,7 @@ public:
         isDivided = true;
     }
 
-    bool insert(const Point3& point){
+    bool insert(const Vector3& point){
         if (!boundary.contains(point)){
             return false;
         }
@@ -56,8 +56,8 @@ public:
         return false;
     }
 
-    void query(AABB& range, std::vector<Point3>& found){
-        std::vector<Point3> result();
+    void query(AABB& range, std::vector<Vector3>& found){
+        std::vector<Vector3> result();
         if(!boundary.intersects(range)){
             return ;
         }

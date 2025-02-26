@@ -12,14 +12,14 @@ set(GLAD libs/glad/glad.c)
 set(STBI libs/stbi/stb_image.cpp)
 
 set(INCLUDE_FILES include/window.h
-        include/Geomtries.h
+        include/Geometries.h
         include/Shader.h
         include/Wireframe.h
         include/Camera.h)
 
 set(SOURCE_FILES src/window.cpp
         src/texture.cpp
-        src/Geomtries.cpp
+        src/Geometries.cpp
         src/Shader.cpp
         src/Wireframe.cpp)
 
